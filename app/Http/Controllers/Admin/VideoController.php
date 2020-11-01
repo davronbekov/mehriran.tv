@@ -1,0 +1,178 @@
+<?php
+
+
+namespace App\Http\Controllers\Admin;
+
+
+use App\Http\Controllers\AdminController;
+use App\Http\Libs\ImagesUploader;
+use App\Http\Models\Video\VideoFiles;
+use App\Http\Models\Video\VideoParams;
+use App\Http\Models\Video\VideoSnapshots;
+use Illuminate\Http\Request;
+
+class VideoController extends AdminController
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    private $type = 'video';
+
+    public function index(){
+        /**
+         * @var VideoFiles $videoFiles
+         */
+        $videoFiles = app(VideoFiles::class);
+        $videoFiles = $videoFiles->getItems($this->type, 18);
+        return view('pages.admin.video.index', [
+            'videoFiles' => $videoFiles,
+        ]);
+    }
+
+    public function edit($id){
+        /**
+         * @var VideoFiles $videoFiles
+         */
+        $videoFiles = app(VideoFiles::class);
+        $videoFiles = $videoFiles->getItem($id);
+
+        return view('pages.admin.video.edit', [
+            'languages' => $this->languages,
+            'videoFile' => $videoFiles,
+        ]);
+    }
+
+    public function create(){
+        return view('pages.admin.video.create', [
+            'languages' => $this->languages
+        ]);
+    }
+
+    public function store(Request $request){
+        $request->validate([
+            'path' => 'required',
+            'filename' => 'required',
+            'ext' => 'required',
+            'language' => 'required',
+            'price' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'snapshot' => 'required',
+        ]);
+
+        $data = $request->all();
+        unset($data['_token']);
+
+        if($request->hasFile('snapshot')){
+            $imagesUploader = new ImagesUploader();
+            $imagesUploader->setFile($request->file('snapshot'));
+            $imagesUploader->setType('snapshots');
+            $imagesUploader->saveFile();
+            $image_data = $imagesUploader->getInfo();
+
+            /**
+             * @var VideoSnapshots $snapshot
+             */
+            $snapshot = app(VideoSnapshots::class);
+            $snapshot->insertItem($image_data);
+
+            $data['snapshot_id'] = $snapshot->id;
+            unset($data['snapshot']);
+        }
+
+        $data['type'] = $this->type;
+
+        /**
+         * @var VideoFiles $videoFiles
+         */
+        $videoFiles = app(VideoFiles::class);
+        $videoFiles->insertItem($data);
+
+        /**
+         * @var VideoParams $videoParams
+         */
+        $videoParams = app(VideoParams::class);
+        $videoParams->insertItem([
+            'file_id' => $videoFiles->id,
+            'price' => $data['price'],
+            'title' => $data['title'],
+            'description' => $data['description'],
+        ]);
+
+        return redirect(route('admin.video.index'));
+    }
+
+    public function update($id, Request $request){
+        $request->validate([
+            'path' => 'required',
+            'filename' => 'required',
+            'ext' => 'required',
+            'language' => 'required',
+            'price' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        $data = $request->all();
+        unset($data['_token']);
+
+        if($request->hasFile('snapshot')){
+            $imagesUploader = new ImagesUploader();
+            $imagesUploader->setFile($request->file('snapshot'));
+            $imagesUploader->setType('snapshots');
+            $imagesUploader->saveFile();
+            $image_data = $imagesUploader->getInfo();
+
+            /**
+             * @var VideoSnapshots $snapshot
+             */
+            $snapshot = app(VideoSnapshots::class);
+            $snapshot->insertItem($image_data);
+
+            $data['snapshot_id'] = $snapshot->id;
+            unset($data['snapshot']);
+        }
+
+        $data['type'] = $this->type;
+
+        /**
+         * @var VideoFiles $videoFiles
+         */
+        $videoFiles = app(VideoFiles::class);
+        $videoFiles = $videoFiles->getItem($id);
+        $videoFiles->updateItem($data);
+
+        /**
+         * @var VideoParams $videoParams
+         */
+        $videoParams = app(VideoParams::class);
+        $videoParams = $videoParams->getItem($id);
+        $videoParams->updateItem([
+            'price' => $data['price'],
+            'title' => $data['title'],
+            'description' => $data['description'],
+        ]);
+
+        return redirect(route('admin.video.index'));
+    }
+
+    public function destroy($id){
+        /**
+         * @var VideoFiles $videoFiles
+         */
+        $videoFiles = app(VideoFiles::class);
+        $videoFiles = $videoFiles->getItem($id);
+        $videoFiles->deleteItem();
+
+        /**
+         * @var VideoParams $videoParams
+         */
+        $videoParams = app(VideoParams::class);
+        $videoParams = $videoParams->getItem($id);
+        $videoParams->deleteItem();
+
+        return redirect(route('admin.video.index'));
+    }
+}
