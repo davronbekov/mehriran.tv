@@ -50,8 +50,12 @@ Route::prefix('{lang?}')->middleware('locale')->group(function() {
     Route::get('/about', 'HomeController@actionAbout')->name('about');
     Route::get('/videos', 'HomeController@actionVideos')->name('videos');
     Route::get('/documentaries', 'HomeController@actionDocumentaries')->name('documentaries');
-    Route::get('/news', 'HomeController@actionNews')->name('news');
     Route::get('/contacts', 'HomeController@actionContacts')->name('contacts');
+
+    Route::prefix('news')->namespace('Web')->as('news.')->group(function (Router $router){
+        $router->get('/', 'NewsController@index')->name('index');
+        $router->get('/show/{id}', 'NewsController@show')->name('show');
+    });
 
 });
 

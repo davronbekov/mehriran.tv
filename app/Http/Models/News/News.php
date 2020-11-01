@@ -23,6 +23,25 @@ class News extends Model
 
     /**
      * @param int $perPage
+     * @param string $language
+     * @return mixed
+     */
+    public function getItemsList($perPage = 18, $language = 'en'){
+        $items = parent::query();
+        $items = $items
+            ->join('news_params', 'news_params.news_id', '=', 'news.id')
+            ->where('news_params.language', '=', $language)
+            ->limit($perPage)
+            ->select([
+                'news_params.news_id as id',
+                'news_params.title as title'
+            ])
+            ->get();
+        return $items;
+    }
+
+    /**
+     * @param int $perPage
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getItems($perPage = 18){
@@ -71,6 +90,14 @@ class News extends Model
      */
     public function relationParams(){
         return $this->hasMany(NewsParams::class, 'news_id', 'id');
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
 }

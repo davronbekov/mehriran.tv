@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Models\News\News;
 use Illuminate\Http\Request;
 
 class HomeController extends WebController
@@ -18,7 +19,16 @@ class HomeController extends WebController
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function actionIndex(){
-        return view('pages.home');
+        /**
+         * @var News $news
+         */
+        $news = app(News::class);
+        $news = $news
+            ->getItemsList(4, app()->getLocale());
+
+        return view('pages.home', [
+            'news' => $news,
+        ]);
     }
 
     /**

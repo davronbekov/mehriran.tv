@@ -230,7 +230,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('news', app()->getLocale()) }}">
+                                    <a class="nav-link text-white" href="{{ route('news.index', app()->getLocale()) }}">
                                         NEWS
                                     </a>
                                 </li>

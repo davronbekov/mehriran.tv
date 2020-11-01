@@ -19,7 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eae344f2-8c27-4b3a-a169-f320380e55da" name="Default Changelist" comment="Files Browser &amp;&amp; fix bugs" />
+    <list default="true" id="eae344f2-8c27-4b3a-a169-f320380e55da" name="Default Changelist" comment="Files Browser &amp;&amp; fix bugs">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/NewsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/news_ico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/video_play_ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Models/News/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Models/News/News.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,7 +229,11 @@
       <workItem from="1604127517942" duration="655000" />
       <workItem from="1604221865830" duration="648000" />
       <workItem from="1604226040061" duration="4058000" />
-      <workItem from="1604231299396" duration="2580000" />
+      <workItem from="1604231299396" duration="4006000" />
+      <workItem from="1604239617463" duration="40000" />
+      <workItem from="1604239667549" duration="1549000" />
+      <workItem from="1604241304791" duration="1236000" />
+      <workItem from="1604242565549" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="Header laptop init">
       <created>1596556557330</created>
@@ -358,6 +373,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Files Browser &amp;&amp; fix bugs" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1604239338650">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604239338650" />
     <state x="705" y="75" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603021693596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -370,11 +389,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/-1920.5.1920.1040@0.0.1920.1040" timestamp="1602944816419" />
-    <state x="727" y="243" key="NewPhpClassDialog" timestamp="1604230023419">
+    <state x="727" y="243" key="NewPhpClassDialog" timestamp="1604238910295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="727" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.5.1920.1040@0.0.1920.1040" timestamp="1603029896677" />
-    <state x="727" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604230023419" />
+    <state x="727" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604238910295" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1604231503419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
