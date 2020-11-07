@@ -29,6 +29,11 @@ class HomeController extends WebController
         $documentaries = app(VideoFiles::class);
         $documentaries = $documentaries->getItemsByLanguage('documentary', 12, app()->getLocale());
 
+        $search = $request->input('search', null);
+        if(!empty($search)){
+            return redirect(route('search', ['lang' => app()->getLocale()]).'?search='.$search);
+        }
+
         $subscribe_action = false;
         switch ($request->input('button', null)){
             case 'subscribe':
@@ -42,7 +47,7 @@ class HomeController extends WebController
 
                 break;
             case 'search':
-                return redirect(route('search', $request->all()));
+                return redirect(route('search', ['lang' => app()->getLocale()]).'?search='.$search);
         }
 
         return view('pages.home', [

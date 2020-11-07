@@ -45,12 +45,14 @@
                             </div>
 
                             <div class="input-group w-25 mt-3">
-                                <input type="text" class="form-control" placeholder="Text..." name="search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit" name="button" value="search">
-                                        <ion-icon name="search-outline"></ion-icon>
-                                    </button>
-                                </div>
+                                <form action="HELLo">
+                                    <input type="text" class="form-control" placeholder="Text..." name="search">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit" name="button" value="search">
+                                            <ion-icon name="search-outline"></ion-icon>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
 
                         </form>
