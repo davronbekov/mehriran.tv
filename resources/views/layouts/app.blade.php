@@ -28,7 +28,7 @@
                         <form class="col-md-6">
 
                             <div class="input-group w-50">
-                                <input type="text" class="form-control" placeholder="E-mail" name="email">
+                                <input type="email" class="form-control" placeholder="E-mail" name="email">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit" name="button" value="subscribe">Subscribe</button>
                                 </div>
@@ -279,7 +279,7 @@
                                 <form class="col-md-6">
 
                                     <div class="input-group mt-3">
-                                        <input type="text" class="form-control" placeholder="E-mail" name="email">
+                                        <input type="email" class="form-control" placeholder="E-mail" name="email">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="submit" name="button" value="subscribe">Subscribe</button>
                                         </div>

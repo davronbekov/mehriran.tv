@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\News\News;
+use App\Http\Models\Subscribers;
 use App\Http\Models\Video\VideoFiles;
 use Illuminate\Http\Request;
 
@@ -14,12 +15,7 @@ class HomeController extends WebController
         parent::__construct();
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function actionIndex(){
+       public function actionIndex(Request $request){
         /**
          * @var News $news
          */
@@ -33,9 +29,26 @@ class HomeController extends WebController
         $documentaries = app(VideoFiles::class);
         $documentaries = $documentaries->getItemsByLanguage('documentary', 12, app()->getLocale());
 
+        $subscribe_action = false;
+        switch ($request->input('button', null)){
+            case 'subscribe':
+                /**
+                 * @var Subscribers $subscribers
+                 */
+                $subscribers = app(Subscribers::class);
+                $subscribersCheck = $subscribers->getItem($request->input('email'));
+                if(is_null($subscribersCheck))
+                    $subscribe_action = $subscribers->insertItem($request->input('email'));
+
+                break;
+            case 'search':
+                return redirect(route('search', $request->all()));
+        }
+
         return view('pages.home', [
             'news' => $news,
             'documentaries' => $documentaries,
+            'subscribe_action' => $subscribe_action,
         ]);
     }
 
@@ -81,5 +94,9 @@ class HomeController extends WebController
      */
     public function actionContacts(){
         return view('pages.contacts');
+    }
+
+    public function actionSearch(Request $request){
+        dd($request->all());
     }
 }

@@ -14,7 +14,7 @@
                @foreach($news as $item)
                    <div>
                        <img src="{{ url('/images/news_ico.png') }}" class="float-left">
-                       <a href="{{ route('news.show', ['id' => $item->id]) }}" style="margin-left: 30px;" class="h4">
+                       <a href="{{ route('news.show', ['id' => $item->id, 'lang' => app()->getLocale()]) }}" style="margin-left: 30px;" class="h4">
                            {{ $item->title }}
                        </a>
                    </div>

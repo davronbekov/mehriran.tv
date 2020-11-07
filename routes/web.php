@@ -22,6 +22,7 @@ Route::prefix('admin')->namespace('Admin')->middleware('admin')->as('admin.')->g
     $router->resource('news', 'NewsController');
     $router->resource('video', 'VideoController');
     $router->resource('documentary', 'DocumentaryController');
+    $router->resource('subscribers', 'SubscribersController');
 
     Route::prefix('filebrowser')->as('filebrowser.')->group(function (Router $router){
         $router->get('/', '\Crowles\FileBrowser\FileBrowserController@index')->name('index');
@@ -51,6 +52,8 @@ Route::prefix('{lang?}')->middleware('locale')->group(function() {
     Route::get('/videos', 'HomeController@actionVideos')->name('videos');
     Route::get('/documentaries', 'HomeController@actionDocumentaries')->name('documentaries');
     Route::get('/contacts', 'HomeController@actionContacts')->name('contacts');
+
+    Route::get('/search', 'HomeController@actionSearch')->name('search');
 
     Route::prefix('news')->namespace('Web')->as('news.')->group(function (Router $router){
         $router->get('/', 'NewsController@index')->name('index');

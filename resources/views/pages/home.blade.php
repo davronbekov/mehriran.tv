@@ -43,7 +43,7 @@
                     @foreach($news as $item)
                         <div>
                             <img src="{{ url('/images/news_ico.png') }}" class="float-left">
-                            <a href="{{ route('news.show', ['id' => $item->id]) }}" style="margin-left: 30px;" class="h4">
+                            <a href="{{ route('news.show', ['id' => $item->id, 'lang' => app()->getLocale()]) }}" style="margin-left: 30px;" class="h4">
                                 {{ $item->title }}
                             </a>
                         </div>
@@ -98,6 +98,35 @@
             </div>
         </div>
     </div>
+
+    @if($subscribe_action)
+        <div class="modal" tabindex="-1" id="subscriber_modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Success!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Subscribed!
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('home') }}" class="btn btn-secondary" >Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            setTimeout(function () {
+                $('#subscriber_modal').modal('show')
+            }, 800)
+        </script>
+    @endif
 
     <script>
         var playerElement = document.getElementById("player");
