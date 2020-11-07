@@ -77,14 +77,14 @@ header {
     position: absolute;
     width: 50%;
     height: 100%;
-    right: 10px;
+    right: 0.9rem;
     color: #FFF;
     background-color: #000;
     opacity: 0.8;
     font-size: 1.5rem;
-    text-align: justify;
-    padding: 0 10px;
     padding-top: 75px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 #featured_mobile img{
@@ -94,14 +94,13 @@ header {
 #featured_mobile #featured_caption_mobile{
     position: absolute;
     height: 60%;
-    width: 93.7%;
+    width: 92%;
     bottom: 0;
     color: #FFF;
     background-color: #000;
     opacity: 0.8;
-    font-size: 1.4rem;
-    text-align: justify;
-    padding: 15px;
+    font-size: 1rem;
+    padding: 1rem;
 }
 
 .documentary>a>div{

@@ -49,6 +49,19 @@ class VideoFiles extends Model
     }
 
     /**
+     * @param string $type
+     * @param int $perPage
+     * @param string $language
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getItemsByLanguage($type = 'video', $perPage = 18, $language = 'en'){
+        return parent::query()->with(['relationSnapshot', 'relationParams'])
+            ->where('type', '=', $type)
+            ->where('language', '=', $language)
+            ->paginate($perPage);
+    }
+
+    /**
      * @param array $data
      * @return bool
      */

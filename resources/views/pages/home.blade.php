@@ -11,7 +11,7 @@
                     {{--       Desktop   --}}
                     <div id="featured_pc" class="d-none d-md-block d-lg-block">
                         <div id="featured_caption_pc">
-                            Immortal Hertitage of Ancient Iran <br/>
+                            Immortal Hertitage of Ancient Iran
                             Order a 7-Documentary Package for 149 US$
                             including postage and GST (VAT)
                         </div>
@@ -21,8 +21,8 @@
                     {{--     Mobile   --}}
                     <div id="featured_mobile" class="d-sm-block d-md-none d-lg-none">
                         <div id="featured_caption_mobile">
-                            Immortal Hertitage of Ancient Iran <br/>
-                            Order a 7-Documentary Package <br/> <b>for 149 US$</b> <br/>
+                            Immortal Hertitage of Ancient Iran
+                            Order a 7-Documentary Package for 149 US$
                             including postage and GST (VAT)
                         </div>
                         <img src="{{ url('/images/slider/2.png') }}" class="d-block w-100" alt="Slider">
@@ -60,27 +60,33 @@
 
                     <div class="row">
 
-                        <div class="col-md-4 documentary">
-                            <a href="#">
-                                <img src="{{ url('images/snapshots/2020/11/01/3a4371241bd4d196941739006ffadc3c.jpg') }}" width="318" height="175">
-                                <img src="{{ url('images/video_play_ico.png') }}" width="61" height="48" style="position:absolute;left: 145px; top: 63px;">
-                                <div class="text-white">
-                                    Title
-                                </div>
-                            </a>
-                            <div class="row">
-                                <div class="col-3">
-                                    <a href="">
-                                        Info
-                                    </a>
-                                </div>
-                                <div class="col-6"></div>
-                                <div class="col-3">
-                                    <ion-icon name="share-social-outline" style="font-size: 20px;position:relative;" class="menu_buttons"></ion-icon>
-                                    Share
+                        @foreach($documentaries as $documentary)
+
+                            <div class="col-md-4 documentary">
+                                <a href="#">
+                                    <img src="{{ url($documentary->relationSnapshot->getUrl()) }}" width="318" height="175">
+                                    <img src="{{ url('images/video_play_ico.png') }}" width="61" height="48" style="position:absolute;left: 145px; top: 63px;">
+                                    <div class="text-white pl-3">
+                                        {{ $documentary->relationParams->title }}
+                                    </div>
+                                </a>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <a href="">
+                                            Info
+                                        </a>
+                                    </div>
+                                    <div class="col-6"></div>
+                                    <div class="col-3">
+                                        <a href="">
+                                            <ion-icon name="share-social-outline" style="font-size: 20px;position:absolute;left: 0.5rem;top:0.5rem" class="menu_buttons"></ion-icon>
+                                            <span style="padding-left: 1rem">Share</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
+                        @endforeach
 
                     </div>
 

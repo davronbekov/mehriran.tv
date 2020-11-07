@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\News\News;
+use App\Http\Models\Video\VideoFiles;
 use Illuminate\Http\Request;
 
 class HomeController extends WebController
@@ -26,8 +27,15 @@ class HomeController extends WebController
         $news = $news
             ->getItemsList(4, app()->getLocale());
 
+        /**
+         * @var VideoFiles $documentaries
+         */
+        $documentaries = app(VideoFiles::class);
+        $documentaries = $documentaries->getItemsByLanguage('documentary', 12, app()->getLocale());
+
         return view('pages.home', [
             'news' => $news,
+            'documentaries' => $documentaries,
         ]);
     }
 
@@ -42,21 +50,30 @@ class HomeController extends WebController
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function actionVideos(){
-        return view('pages.videos');
+        /**
+         * @var VideoFiles $videos
+         */
+        $videos = app(VideoFiles::class);
+        $videos = $videos->getItemsByLanguage('video', 12, app()->getLocale());
+
+        return view('pages.videos', [
+            'videos' => $videos,
+        ]);
     }
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function actionDocumentaries(){
-        return view('pages.documentaries');
-    }
+        /**
+         * @var VideoFiles $documentaries
+         */
+        $documentaries = app(VideoFiles::class);
+        $documentaries = $documentaries->getItemsByLanguage('documentary', 12, app()->getLocale());
 
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function actionNews(){
-        return view('pages.news');
+        return view('pages.documentaries', [
+            'documentaries' => $documentaries,
+        ]);
     }
 
     /**
