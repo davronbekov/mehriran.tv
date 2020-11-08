@@ -302,10 +302,26 @@
         <div style="height: 30px;width: 30px;"></div>
 
         @yield('content')
+
+        {{--        footer   --}}
+        <div class="col-md-12 mt-5 py-3" style="background-color: #3D9DFF">
+            <div class="row">
+                <div class="offset-md-2"></div>
+                <div class="col-md-4">
+                    <a href="https://www.youtube.com/channel/UC3VU00-VEJR7gcodghA_r6Q/" target="_blank">
+                        <img src="{{ url('images/youtube_banner.png') }}" alt="youtube" >
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="twitter-timeline" data-height="205" href="https://twitter.com/MehriranTV?ref_src=twsrc%5Etfw">Tweets by MehriranTV</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    <script type="text/javascript" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     <script type="application/javascript" src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>
