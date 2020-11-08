@@ -57,7 +57,9 @@ class News extends Model
         if(is_null($id))
             return null;
 
-        return parent::query()->where('id', '=', $id)->first();
+        return parent::query()
+            ->where('id', '=', $id)
+            ->first();
     }
 
     /**

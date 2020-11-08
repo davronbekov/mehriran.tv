@@ -22,12 +22,23 @@ class NewsController extends WebController
         $news = $news
             ->getItemsList(18, app()->getLocale());
 
-        return view('pages.news',[
+        return view('pages.news.index',[
             'news' => $news,
         ]);
     }
 
-    public function show($id){
+    public function show($lang, $id){
+        /**
+         * @var News $news
+         */
+        $news = app(News::class);
+        $news = $news->getItem($id);
 
+        if(is_null($news))
+            return redirect(route('news.index', ['lang' => app()->getLocale()]));
+
+        return view('pages.news.show',[
+            'news' => $news->relationParams->where('language', '=', $lang)->first(),
+        ]);
     }
 }
