@@ -52,6 +52,7 @@ Route::prefix('{lang?}')->middleware('locale')->group(function() {
     Route::get('/videos', 'HomeController@actionVideos')->name('videos');
     Route::get('/documentaries', 'HomeController@actionDocumentaries')->name('documentaries');
     Route::get('/contacts', 'HomeController@actionContacts')->name('contacts');
+    Route::post('/feedback', 'HomeController@actonFeedback')->name('feedback');
 
     Route::get('/search', 'HomeController@actionSearch')->name('search');
 

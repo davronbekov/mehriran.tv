@@ -104,7 +104,7 @@
                             <img src="{{ url('images/feedback_ico.png') }}" class="w-50" style="margin:5rem 0 5rem 25%;">
                         </div>
                         <div class="col-md-6">
-                            <form action="?" method="get" class="w-75" style="margin-left: 12.5%; margin-top: 3rem">
+                            <form action="{{ route('feedback', ['lang' => app()->getLocale()]) }}" method="POST" class="w-75" style="margin-left: 12.5%; margin-top: 3rem">
                                 @csrf
 
                                 <div class="input-group">
@@ -171,6 +171,34 @@
                     <div class="modal-body">
                         <p>
                             Subscribed!
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('home') }}" class="btn btn-secondary" >Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            setTimeout(function () {
+                $('#subscriber_modal').modal('show')
+            }, 800)
+        </script>
+    @endif
+    @if($feedback_action)
+        <div class="modal" tabindex="-1" id="subscriber_modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Success!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Your inquire was sent!
                         </p>
                     </div>
                     <div class="modal-footer">

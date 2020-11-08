@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Models\Feedbacks;
 use App\Http\Models\News\News;
 use App\Http\Models\Subscribers;
 use App\Http\Models\Video\VideoFiles;
@@ -34,7 +35,8 @@ class HomeController extends WebController
             return redirect(route('search', ['lang' => app()->getLocale()]).'?search='.$search);
         }
 
-        $subscribe_action = false;
+       $subscribe_action = false;
+       $feedback_action = false;
         switch ($request->input('button', null)){
             case 'subscribe':
                 /**
@@ -48,12 +50,16 @@ class HomeController extends WebController
                 break;
             case 'search':
                 return redirect(route('search', ['lang' => app()->getLocale()]).'?search='.$search);
+            case 'feedback':
+                $feedback_action = true;
+                break;
         }
 
         return view('pages.home', [
             'news' => $news,
             'documentaries' => $documentaries,
             'subscribe_action' => $subscribe_action,
+            'feedback_action' => $feedback_action,
         ]);
     }
 
@@ -103,5 +109,25 @@ class HomeController extends WebController
 
     public function actionSearch(Request $request){
         dd($request->all());
+    }
+
+    public function actonFeedback(Request $request){
+        if($request->isMethod('post')){
+            /**
+             * @var Feedbacks $feedbacks
+             */
+            $feedbacks = app(Feedbacks::class);
+            $status = $feedbacks->insertItem([
+                'name' => $request->input('name'),
+                'phone' => $request->input('phone'),
+                'email' => $request->input('email'),
+                'text' => $request->input('text'),
+            ]);
+
+            if($status)
+                return redirect(route('home', ['lang' => app()->getLocale()]).'?button=feedback');
+        }
+
+        return redirect(route('home', ['lang' => app()->getLocale()]));
     }
 }
