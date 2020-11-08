@@ -45,7 +45,7 @@
                             </a>
                         </li>
                         <li class="navbar-nav">
-                            <a class="nav-link " href="#" >
+                            <a class="nav-link text-white" href="{{ route('admin.feedbacks.index') }}" >
                                 Feedbacks
                             </a>
                         </li>

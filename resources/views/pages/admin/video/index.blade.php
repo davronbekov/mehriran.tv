@@ -45,6 +45,8 @@
                 @endforeach
             </div>
 
+            {{ $videoFiles->links() }}
+
         </div>
     </div>
 

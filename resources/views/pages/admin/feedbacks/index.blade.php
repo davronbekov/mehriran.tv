@@ -9,20 +9,24 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Email</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Created at</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($subscribers as $subscriber)
+                    @foreach($feedbacks as $feedback)
                         <tr>
-                            <th scope="row">{{ $subscriber->id }}</th>
-                            <td>{{ $subscriber->email }}</td>
-                            <td>{{ $subscriber->created_at }}</td>
+                            <th scope="row">{{ $feedback->id }}</th>
+                            <td>
+                                <a href="{{ route('admin.feedbacks.show', $feedback->id) }}">
+                                    {{ $feedback->name }}
+                                </a>
+                            </td>
+                            <td>{{ $feedback->created_at }}</td>
                         </tr>
                     @endforeach
                 </tbody>
-                {{ $subscribers->links() }}
+                {{ $feedbacks->links() }}
             </table>
         </div>
     </div>
