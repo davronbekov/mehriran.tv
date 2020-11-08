@@ -63,7 +63,7 @@
                         @foreach($documentaries as $documentary)
 
                             <div class="col-md-4 documentary">
-                                <a href="#">
+                                <a href="#" data-toggle="modal" data-target="#file_modal_{{$documentary->id}}">
                                     <img src="{{ url($documentary->relationSnapshot->getUrl()) }}" width="318" height="175">
                                     <img src="{{ url('images/video_play_ico.png') }}" width="61" height="48" style="position:absolute;left: 145px; top: 63px;">
                                     <div class="text-white pl-3">
@@ -72,7 +72,7 @@
                                 </a>
                                 <div class="row">
                                     <div class="col-3">
-                                        <a href="">
+                                        <a href="#" data-toggle="modal" data-target="#file_modal_{{$documentary->id}}">
                                             Info
                                         </a>
                                     </div>
@@ -82,6 +82,51 @@
                                             <ion-icon name="share-social-outline" style="font-size: 20px;position:absolute;left: 0.5rem;top:0.5rem" class="menu_buttons"></ion-icon>
                                             <span style="padding-left: 1rem">Share</span>
                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal" tabindex="-1" id="file_modal_{{$documentary->id}}">
+                                <div class="modal-dialog" style="max-width: 800px">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">{{ $documentary->relationParams->title }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <b>Trailer</b>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div id="file_player_{{$documentary->id}}"></div>
+                                                </div>
+                                                <div class="col-md-12 mt-3">
+                                                    <a href="" class="float-right">
+                                                        <ion-icon name="share-social-outline" style="font-size: 20px;position:absolute;right: 3.5rem;" class="menu_buttons"></ion-icon>
+                                                        <span style="padding-left: 1rem">Share</span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    {!! $documentary->relationParams->description !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            var playerElement = document.getElementById("file_player_{{$documentary->id}}");
+
+                                            var player = new Clappr.Player({
+                                                source: '{{ $documentary->getFileUrl() }}',
+                                                poster: '{{ url($documentary->relationSnapshot->getUrl()) }}',
+                                                mute: true,
+                                                height: 360,
+                                                width: '100%'
+                                            });
+
+                                            player.attachTo(playerElement);
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +264,7 @@
         var playerElement = document.getElementById("player");
 
         var player = new Clappr.Player({
-            source: 'https://api.itv.uz/hls/iptv/1088/index.m3u8?type=live&traffic=true&token=gQ5gvGp_XlpksftPgxG5vg&ip=10.128.41.73&uid=&device=web&s=webd5f7338d7ab8fcfb9ebdf5fc519999cd&e=1601998657',
+            source: 'https://api.itv.uz/hls/iptv/1082/index.m3u8?type=live&traffic=true&token=gQ5gvGp_XlpksftPgxG5vg&ip=10.128.41.73&uid=&device=web&s=webd5f7338d7ab8fcfb9ebdf5fc519999cd&e=1601998657',
             poster: 'http://clappr.io/poster.png',
             mute: true,
             height: 480,
@@ -228,7 +273,5 @@
 
         player.attachTo(playerElement);
     </script>
-
-
 
 @endsection

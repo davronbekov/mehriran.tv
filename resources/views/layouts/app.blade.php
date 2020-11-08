@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 
-    <script type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js">
-    </script>
+    <script type="application/javascript" src="{{ asset('/js/app.js') }}"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 </head>
 <body class="container-fluid">
 
@@ -322,6 +321,5 @@
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
     <script type="text/javascript" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-    <script type="application/javascript" src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>

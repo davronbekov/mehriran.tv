@@ -61,6 +61,10 @@ class VideoFiles extends Model
             ->paginate($perPage);
     }
 
+    public function getFileUrl(){
+        return url('/'.$this->path.'/'.$this->filename.'.'.$this->ext);
+    }
+
     /**
      * @param array $data
      * @return bool
