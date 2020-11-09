@@ -24,7 +24,7 @@
                 <div class="col-md-8 offset-md-2 d-none d-md-block d-lg-block">
 
                     <div class="row pt-4">
-                        <form class="col-md-6">
+                        <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
 
                             <div class="input-group w-50">
                                 <input type="email" class="form-control" placeholder="E-mail" name="email">
@@ -183,7 +183,7 @@
                             <ion-icon name="mail-outline" class="text-white" style="font-size: 30px;"></ion-icon>
                         </button>
 
-                        <a class="navbar-toggler">
+                        <a class="navbar-toggler" href="{{ route('login') }}">
                             <ion-icon name="person-outline" class="text-white" style="font-size: 30px;"></ion-icon>
                         </a>
 
@@ -262,7 +262,7 @@
                         <div class="col-md-12 d-sm-block d-md-none d-lg-none">
                             {{--           Search                 --}}
                             <div class="collapse navbar-collapse justify-content-center" id="navbarmenusearch">
-                                <form class="col-md-6">
+                                <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
                                     <div class="input-group mt-3">
                                         <input type="text" class="form-control" placeholder="Text..." name="search">
                                         <div class="input-group-append">
@@ -277,7 +277,7 @@
 
                             {{--           Subscribe                 --}}
                             <div class="collapse navbar-collapse justify-content-center" id="navbarmenusubscribe">
-                                <form class="col-md-6">
+                                <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
 
                                     <div class="input-group mt-3">
                                         <input type="email" class="form-control" placeholder="E-mail" name="email">
@@ -306,9 +306,9 @@
         <div class="col-md-12 mt-5 py-3" style="background-color: #3D9DFF">
             <div class="row">
                 <div class="offset-md-2"></div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-2">
                     <a href="https://www.youtube.com/channel/UC3VU00-VEJR7gcodghA_r6Q/" target="_blank">
-                        <img src="{{ url('images/youtube_banner.png') }}" alt="youtube" >
+                        <img src="{{ url('images/youtube_banner.png') }}" alt="youtube" style="max-width: 100%">
                     </a>
                 </div>
                 <div class="col-md-4">

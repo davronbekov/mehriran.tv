@@ -33,10 +33,10 @@ class FilesController extends AdminController
             $name = $name.'.'.$object[$i];
         }
 
-        $path = explode(public_path('\\'), $request->input('root'));
+        $path = $request->input('root');
 
         $data = [
-            'path' => isset($path[1]) ? $path[1] : '',
+            'path' => $path,
             'name' => $name,
             'ext' => $ext,
         ];

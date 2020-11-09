@@ -22,7 +22,7 @@ return [
     | The root diectory where you want to initialise the file browser
     |
     */
-    'root' => public_path(env('FILEBROWSER_ROOT', '')),
+    'root' => env('FILEBROWSER_ROOT', ''),
 
     /*
     |--------------------------------------------------------------------------

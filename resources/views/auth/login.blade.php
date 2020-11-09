@@ -64,6 +64,13 @@
                                         </a>
                                     @endif
                                 </div>
+                                <div class="col-md-12 text-right">
+                                    @if (Route::has('register'))
+                                        <a class="btn btn-link" href="{{ route('register') }}">
+                                            {{ __('Don\'t have an account?') }}
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
                         </form>
                     </div>
