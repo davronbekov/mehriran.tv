@@ -16,7 +16,7 @@ class CreateVideoParamsTable extends Migration
         Schema::create('video_params', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('file_id');
-            $table->integer('price');
+            $table->float('price');
             $table->string('title');
             $table->text('description');
             $table->timestamps();

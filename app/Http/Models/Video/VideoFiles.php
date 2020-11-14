@@ -24,6 +24,23 @@ class VideoFiles extends Model
 {
     protected $table = 'video_files';
 
+    public function getFilteredItems($data = [], $type = 'video', $language = 'en'){
+        $items = parent::query();
+
+        $items ->join('video_params', 'video_params.file_id', '=', 'video_files.id')
+            ->where('video_files.language', '=', $language);
+
+        if(isset($data['word']))
+            $items = $items->where('video_params.title', 'like', '%'.$data['word'].'%');
+
+        $items = $items->where('video_files.type', '=', $type);
+
+        return
+            $items->select([
+                'video_files.*'
+            ])->get();
+    }
+
     /**
      * @param null $id
      * @return \Illuminate\Database\Eloquent\Builder|Model|object|null

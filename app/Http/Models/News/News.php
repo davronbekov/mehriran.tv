@@ -21,6 +21,22 @@ class News extends Model
 {
     protected $table = 'news';
 
+    public function getFilteredItems($data = [], $language = 'en'){
+        $items = parent::query();
+        $items = $items
+            ->join('news_params', 'news_params.news_id', '=', 'news.id')
+            ->where('news_params.language', '=', $language);
+
+        if(isset($data['word']))
+            $items = $items->where('news_params.title', 'like', '%'.$data['word'].'%');
+
+        return
+            $items->select([
+                'news_params.news_id as id',
+                'news_params.title as title'
+            ])->get();
+    }
+
     /**
      * @param int $perPage
      * @param string $language

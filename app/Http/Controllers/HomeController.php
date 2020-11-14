@@ -108,7 +108,49 @@ class HomeController extends WebController
     }
 
     public function actionSearch(Request $request){
-        dd($request->all());
+        $word = $request->input('search', null);
+        $news = null;
+        $documentaries = null;
+        $videos = null;
+
+        if(!is_null($word)){
+            $news = app(News::class)
+                ->getFilteredItems(
+                    [
+                        'word' => $word,
+                    ], app()->getLocale()
+                );
+
+            /**
+             * @var VideoFiles $documentaries
+             */
+            $documentaries = app(VideoFiles::class)
+                ->getFilteredItems(
+                    [
+                        'word' => $word,
+                    ],
+                    'documentary',
+                    app()->getLocale()
+                );
+
+            /**
+             * @var VideoFiles $videos
+             */
+            $videos = app(VideoFiles::class)
+                ->getFilteredItems(
+                    [
+                        'word' => $word,
+                    ],
+                    'video',
+                    app()->getLocale()
+                );
+        }
+
+        return view('pages.search', [
+            'news' => $news,
+            'documentaries' => $documentaries,
+            'videos' => $videos,
+        ]);
     }
 
     public function actonFeedback(Request $request){
