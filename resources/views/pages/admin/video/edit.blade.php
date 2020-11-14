@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-md-12 mt-2">
-                    <input type="number" name="price" placeholder="price" class="form-control" required value="{{ $videoFile->relationParams->price }}">
+                    <input type="text" name="price" placeholder="price" class="form-control" required value="{{ $videoFile->relationParams->price }}">
                 </div>
 
                 <h4 class="col-md-12 mt-3">
