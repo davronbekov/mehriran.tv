@@ -62,6 +62,12 @@ Route::prefix('{lang?}')->middleware('locale')->group(function() {
         $router->get('/show/{id}', 'NewsController@show')->name('show');
     });
 
+    Route::prefix('profile')->namespace('Web')->middleware('auth')->as('profile.')->group(function(Router $router){
+        $router->get('/', 'ProfileController@actionIndex')->name('index');
+        $router->get('/changePassword', 'ProfileController@actionChangePassword')->name('changePassword');
+        $router->put('/updatePassword', 'ProfileController@actionUpdatePassword')->name('updatePassword');
+    });
+
 });
 
 

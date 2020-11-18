@@ -105,7 +105,7 @@
                                         Welcome
                                         <span>
                                             @auth
-                                                <a href="{{ url('/home') }}" class="text-white">Profile</a>
+                                                <a href="{{ route('profile.index', ['lang' => app()->getLocale()]) }}" class="text-white">Profile</a>
                                                 @if(auth()->user()->is_admin)
                                                     /
                                                     <a href="{{ url('/admin/main/') }}" class="text-white">Admin Panel</a>
@@ -183,7 +183,7 @@
                             <ion-icon name="mail-outline" class="text-white" style="font-size: 30px;"></ion-icon>
                         </button>
 
-                        <a class="navbar-toggler" href="{{ route('login') }}">
+                        <a class="navbar-toggler" href="{{ route('profile.index', ['lang' => app()->getLocale()]) }}">
                             <ion-icon name="person-outline" class="text-white" style="font-size: 30px;"></ion-icon>
                         </a>
 
@@ -299,6 +299,30 @@
         </div>
 
         <div style="height: 30px;width: 30px;"></div>
+
+        <div class="col-md-12">
+            @if(session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session()->get('error') }}
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
 
         @yield('content')
 
