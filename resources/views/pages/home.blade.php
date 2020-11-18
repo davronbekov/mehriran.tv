@@ -43,8 +43,10 @@
                     @foreach($news as $item)
                         <div>
                             <img src="{{ url('/images/news_ico.png') }}" class="float-left">
-                            <a href="{{ route('news.show', ['id' => $item->id, 'lang' => app()->getLocale()]) }}" style="margin-left: 30px;" class="h4">
-                                {{ $item->title }}
+                            <a href="{{ route('news.show', ['id' => $item->id, 'lang' => app()->getLocale()]) }}" >
+                                <p class="h3 ml-5 text-dark">
+                                    {{ $item->title }}
+                                </p>
                             </a>
                         </div>
                     @endforeach
@@ -168,7 +170,7 @@
                                     <textarea name="text" class="form-control" placeholder="Enter your message..." rows="5" required></textarea>
                                 </div>
 
-                                <div class="mt-3" id="feedback_captcha" style="margin: 0 auto; width: 300px;"></div>
+                                <div class="mt-3" id="feedback_captcha"></div>
 
                                 <div class="input-group mt-3 mb-5">
                                     <input type="submit" id="feedback_btn" class="form-control bg-light w-50" value="Send">
@@ -191,6 +193,24 @@
                                         btn.addClass('bg-primary');
                                     }
                                 };
+
+                                function rescaleCaptcha(){
+                                    var width = $('#feedback_captcha').parent().width();
+                                    var scale;
+                                    if (width < 302) {
+                                        scale = width / 302;
+                                    } else{
+                                        scale = 1.0;
+                                    }
+
+                                    $('#feedback_captcha').css('transform', 'scale(' + scale + ')');
+                                    $('#feedback_captcha').css('-webkit-transform', 'scale(' + scale + ')');
+                                    $('#feedback_captcha').css('transform-origin', '0 0');
+                                    $('#feedback_captcha').css('-webkit-transform-origin', '0 0');
+                                }
+
+                                rescaleCaptcha();
+                                $( window ).resize(function() { rescaleCaptcha(); });
                             </script>
 
                         </div>

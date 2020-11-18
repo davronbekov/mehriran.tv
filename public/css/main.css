@@ -118,3 +118,7 @@ header {
     margin-left: 0.01rem;
     line-height: 40px
 }
+
+#feedback_captcha>div, #feedback_captcha>div>div>iframe{
+    margin: 0 auto;
+}
