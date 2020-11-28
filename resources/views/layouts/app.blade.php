@@ -195,7 +195,7 @@
                                         HOME
                                     </a>
                                 </li>
-                                <li class="nav-item d-none d-md-block d-lg-block">
+                                <li class="nav-item d-none d-md-none d-lg-block">
                                     <a class="nav-link" href="#">
                                         <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
                                     </a>
@@ -205,7 +205,7 @@
                                         ABOUT US
                                     </a>
                                 </li>
-                                <li class="nav-item d-none d-md-block d-lg-block">
+                                <li class="nav-item d-none d-md-none d-lg-block">
                                     <a class="nav-link" href="#">
                                         <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
                                     </a>
@@ -215,7 +215,7 @@
                                         VIDEOS
                                     </a>
                                 </li>
-                                <li class="nav-item d-none d-md-block d-lg-block">
+                                <li class="nav-item d-none d-md-none d-lg-block">
                                     <a class="nav-link" href="#">
                                         <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
                                     </a>
@@ -225,7 +225,7 @@
                                         DOCUMENTARIES
                                     </a>
                                 </li>
-                                <li class="nav-item d-none d-md-block d-lg-block">
+                                <li class="nav-item d-none d-md-none d-lg-block">
                                     <a class="nav-link" href="#">
                                         <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
                                     </a>
@@ -235,7 +235,7 @@
                                         NEWS
                                     </a>
                                 </li>
-                                <li class="nav-item d-none d-md-block d-lg-block">
+                                <li class="nav-item d-none d-md-none d-lg-block">
                                     <a class="nav-link" href="#">
                                         <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
                                     </a>
@@ -245,12 +245,12 @@
                                         CONTACT US
                                     </a>
                                 </li>
-                                <li class="nav-item d-none d-md-block d-lg-block">
+                                <li class="nav-item d-none d-md-none d-lg-block">
                                     <a class="nav-link" href="#">
                                         <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
                                     </a>
                                 </li>
-                                <li class="nav-item d-none d-md-block d-lg-block menu_buttons_share">
+                                <li class="nav-item d-none d-md-none d-lg-block menu_buttons_share">
                                     <a class="nav-link text-white" href="#">
                                         Tell your friends
                                         <ion-icon name="share-social-outline" style="font-size: 20px;" class="menu_buttons"></ion-icon>
@@ -259,7 +259,7 @@
                             </ul>
                         </div>
 
-                        <div class="col-md-12 d-sm-block d-md-none d-lg-none">
+                        <div class="col-md-12 d-sm-block d-md-block d-lg-none">
                             {{--           Search                 --}}
                             <div class="collapse navbar-collapse justify-content-center" id="navbarmenusearch">
                                 <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">

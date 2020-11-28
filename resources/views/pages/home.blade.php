@@ -9,7 +9,7 @@
                 {{--         featured               --}}
                 <div class="col-md-12">
                     {{--       Desktop   --}}
-                    <div id="featured_pc" class="d-none d-md-block d-lg-block">
+                    <div id="featured_pc" class="d-none d-sm-none d-md-block d-lg-block">
                         <div id="featured_caption_pc">
                             Immortal Hertitage of Ancient Iran
                             Order a 7-Documentary Package for 149 US$
