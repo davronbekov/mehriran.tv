@@ -24,6 +24,7 @@ Route::prefix('admin')->namespace('Admin')->middleware('admin')->as('admin.')->g
     $router->resource('documentary', 'DocumentaryController');
     $router->resource('subscribers', 'SubscribersController');
     $router->resource('feedbacks', 'FeedbacksController');
+    $router->resource('playlist', 'PlaylistController');
 
     Route::prefix('filebrowser')->as('filebrowser.')->group(function (Router $router){
         $router->get('/', '\Crowles\FileBrowser\FileBrowserController@index')->name('index');
