@@ -54,22 +54,16 @@ header {
     font-size: 1.1rem;
 }
 .menu_buttons{
-    margin-top: 3px;
     color: #0051A6 !important;
+    font-size: 0.7rem;
 }
 .menu_buttons_share{
     border: 1px solid #FFF;
     border-radius: 10px;
-    width: 180px;
-    margin-left: 20px;
-}
-.menu_buttons_share>a>.menu_buttons{
-    position: absolute;
-    margin-left: 5px;
-    color: #FFF !important;
 }
 
 #featured_pc img{
+    position: relative;
     max-height: 260px;
 }
 
@@ -81,20 +75,22 @@ header {
     color: #FFF;
     background-color: #000;
     opacity: 0.8;
-    font-size: 1.5rem;
-    padding-top: 75px;
-    padding-right: 10px;
-    padding-left: 10px;
+    font-size: 1.25rem;
+    z-index: 1;
+    padding: 1rem;
 }
 
 #featured_mobile img{
     max-height: 450px;
 }
 
-#featured_mobile #featured_caption_mobile{
+#featured_mobile{
+    position: relative;
+}
+
+#featured_mobile>#featured_caption_mobile{
     position: absolute;
     height: 60%;
-    width: 92%;
     bottom: 0;
     color: #FFF;
     background-color: #000;

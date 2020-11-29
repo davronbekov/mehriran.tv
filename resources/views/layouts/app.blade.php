@@ -17,11 +17,11 @@
     <div class="row" id="app">
 
         {{--     header      --}}
-        <header class="col-md-12">
+        <header class="col-md-12 col-lg-12">
 
             <div class="row">
                 {{--         Desctop version           --}}
-                <div class="col-md-8 offset-md-2 d-none d-md-block d-lg-block">
+                <div class="col-lg-8 offset-lg-2 col-md-12 d-none d-lg-block">
 
                     <div class="row pt-4">
                         <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
@@ -43,7 +43,7 @@
                                 <div>info@mehriran.tv</div>
                             </div>
 
-                            <div class="input-group w-25 mt-3">
+                            <div class="input-group w-50 mt-3">
                                 <form action="HELLo">
                                     <input type="text" class="form-control" placeholder="Text..." name="search">
                                     <div class="input-group-append">
@@ -132,7 +132,7 @@
                 {{--         Desctop version  end     --}}
 
                 {{--         Mobile version           --}}
-                <div class="col-md-12 d-sm-block d-md-none d-lg-none">
+                <div class="col-md-12 d-sm-block d-md-block d-lg-none">
 
                     <div class="row">
                         <div class="col-6">
@@ -166,10 +166,7 @@
         {{--     sub header      --}}
         <div class="col-md-12" id="header_menu">
 
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-
-                    <nav class="navbar navbar-expand-lg navbar-primary bg-primary ">
+            <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenulist" aria-controls="navbarmenulist" aria-expanded="false" aria-label="Toggle navigation">
                             <ion-icon name="menu-outline" class="text-white" style="font-size: 30px;"></ion-icon>
@@ -245,15 +242,10 @@
                                         CONTACT US
                                     </a>
                                 </li>
-                                <li class="nav-item d-none d-md-none d-lg-block">
-                                    <a class="nav-link" href="#">
-                                        <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
-                                    </a>
-                                </li>
                                 <li class="nav-item d-none d-md-none d-lg-block menu_buttons_share">
                                     <a class="nav-link text-white" href="#">
-                                        Tell your friends
-                                        <ion-icon name="share-social-outline" style="font-size: 20px;" class="menu_buttons"></ion-icon>
+                                        Tell your friend
+                                        <ion-icon name="share-social-outline" class="menu_buttons"></ion-icon>
                                     </a>
                                 </li>
                             </ul>
@@ -292,9 +284,6 @@
 
 
                     </nav>
-
-                </div>
-            </div>
 
         </div>
 
