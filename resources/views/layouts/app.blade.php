@@ -24,9 +24,9 @@
                 <div class="col-lg-10 offset-lg-1 col-md-12 d-none d-lg-block">
 
                     <div class="row pt-4">
-                        <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
+                        <form class="col-md-5" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
 
-                            <div class="input-group w-50">
+                            <div class="input-group" style="width: 60%;">
                                 <input type="email" class="form-control" placeholder="E-mail" name="email">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit" name="button" value="subscribe">Subscribe</button>
@@ -43,7 +43,7 @@
                                 <div>info@mehriran.tv</div>
                             </div>
 
-                            <div class="input-group w-50 mt-3">
+                            <div class="input-group mt-3" style="width: 60%">
                                 <form action="HELLo">
                                     <input type="text" class="form-control" placeholder="Text..." name="search">
                                     <div class="input-group-append">
@@ -55,8 +55,8 @@
                             </div>
 
                         </form>
-
-                        <div class="col-md-6 text-right">
+                        <a class="col-md-2" href="{{ route('home', ['lang' => app()->getLocale()]) }}"></a>
+                        <div class="col-md-5 text-right">
 
                             <div id="header_languages">
                                 <ul class="list-inline">
@@ -102,11 +102,11 @@
                                                     <a href="{{ url('/admin/main/') }}" class="text-white">Admin Panel</a>
                                                 @endif
                                             @else
-                                                <a href="{{ route('login') }}" class="text-white">
+                                                <a href="#" class="text-white" data-toggle="modal" data-target="#login_modal">
                                                     Login
                                                 </a>
                                                 /
-                                                <a href="{{ route('register') }}" class="text-white">
+                                                <a href="#" class="text-white" data-toggle="modal" data-target="#register_modal">
                                                     Register
                                                 </a>
                                             @endauth
@@ -141,12 +141,11 @@
                             </div>
 
                         </div>
-                        <div class="col-6">
-
-                        </div>
+                        <div class="col-6"></div>
                     </div>
 
                 </div>
+                <a class="col-md-12 d-sm-block d-md-block d-lg-none" id="mobile_logo_clicker" href="{{ route('home', ['lang' => app()->getLocale()]) }}"></a>
                 {{--         Mobile version end       --}}
             </div>
 
@@ -308,7 +307,7 @@
             <div class="row">
                 <div class="offset-md-2"></div>
                 <div class="col-md-4 mb-2">
-                    <a href="https://www.youtube.com/channel/UC3VU00-VEJR7gcodghA_r6Q/" target="_blank">
+                    <a href="https://www.youtube.com/channel/UC_tSU1pitB4dUVMRuXaQniQ/" target="_blank">
                         <img src="{{ url('images/youtube_banner.png') }}" alt="youtube" style="max-width: 100%">
                     </a>
                 </div>
@@ -318,6 +317,14 @@
             </div>
         </div>
     </div>
+
+
+    @auth
+        {{--  Authed      --}}
+    @else
+        @include('auth.login')
+        @include('auth.register')
+    @endauth
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>

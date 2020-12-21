@@ -122,3 +122,9 @@ header {
 #feedback_captcha>div, #feedback_captcha>div>div>iframe{
     margin: 0 auto;
 }
+
+#mobile_logo_clicker{
+    position:absolute;
+    bottom: 0;
+    height: 190px;
+}
