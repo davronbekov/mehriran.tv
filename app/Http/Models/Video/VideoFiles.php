@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Session;
  * @property String $path
  * @property String $filename
  * @property String $ext
+ * @property String $youtube_url
  * @property String $created_at
  * @property String $updated_at
  */
@@ -79,6 +80,9 @@ class VideoFiles extends Model
     }
 
     public function getFileUrl(){
+        if(!is_null($this->youtube_url))
+            return $this->youtube_url;
+
         return url('/'.$this->path.'/'.$this->filename.'.'.$this->ext);
     }
 
@@ -93,6 +97,7 @@ class VideoFiles extends Model
         $this->path = $data['path'];
         $this->filename = $data['filename'];
         $this->ext = $data['ext'];
+        $this->youtube_url = $data['youtube_url'] ?? null;
         return $this->save();
     }
 

@@ -21,7 +21,7 @@
 
             <div class="row">
                 {{--         Desctop version           --}}
-                <div class="col-lg-8 offset-lg-2 col-md-12 d-none d-lg-block">
+                <div class="col-lg-10 offset-lg-1 col-md-12 d-none d-lg-block">
 
                     <div class="row pt-4">
                         <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
@@ -67,19 +67,10 @@
                                         <a href="#">Русский</a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a href="#">Тоҷики</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">پارسی</a>
+                                        <a href="#">دری-پارسی</a>
                                     </li>
                                 </ul>
                                 <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="#">Kurdi</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#">کوردی</a>
-                                    </li>
                                     <li class="list-inline-item">
                                         <a href="#">EIRANIK</a>
                                     </li>
@@ -144,10 +135,7 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#">English</a>
                                     <a class="dropdown-item" href="#">Русский</a>
-                                    <a class="dropdown-item" href="#">Тоҷики</a>
-                                    <a class="dropdown-item" href="#">پارسی</a>
-                                    <a class="dropdown-item" href="#">Kurdi</a>
-                                    <a class="dropdown-item" href="#">کوردی</a>
+                                    <a class="dropdown-item" href="#">دری-پارسی</a>
                                     <a class="dropdown-item" href="#">EIRANIK</a>
                                 </div>
                             </div>
@@ -209,7 +197,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="{{ route('videos', app()->getLocale()) }}">
-                                        VIDEOS
+                                        TV PROGRAMMES
                                     </a>
                                 </li>
                                 <li class="nav-item d-none d-md-none d-lg-block">

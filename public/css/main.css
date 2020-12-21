@@ -50,6 +50,10 @@ header {
     background-color: #3B9CFF;
     line-height: 25px;
 }
+#navbarmenulist > ul > li > a{
+    padding-left: .3rem;
+    padding-right: .3rem;
+}
 .navbar-nav{
     font-size: 1.1rem;
 }

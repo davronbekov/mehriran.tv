@@ -19,12 +19,6 @@
                             List
                         </a>
                     </li>
-                    <li class="list-group-item">
-                        <a href="{{ route('admin.documentary.create') }}">
-                            Create
-                        </a>
-                    </li>
-
                 </ul>
 
             </div>

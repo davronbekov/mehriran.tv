@@ -39,6 +39,9 @@
                     </div>
                 </div>
 
+                <div class="col-md-12 mt-3">
+                    <input type="text" class="form-control" name="youtube_url" placeholder="Youtube ID" value="{{ $videoFile->youtube_url ?? '' }}">
+                </div>
             </div>
         </div>
 

@@ -21,6 +21,7 @@ class CreateVideoFilesTable extends Migration
             $table->string('path');
             $table->string('filename');
             $table->string('ext');
+            $table->string('youtube_url')->default(null);
             $table->timestamps();
         });
     }
