@@ -29,7 +29,7 @@
                             <div class="input-group" style="width: 60%;">
                                 <input type="email" class="form-control" placeholder="E-mail" name="email">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit" name="button" value="subscribe">Subscribe</button>
+                                    <button class="btn red_color text-white" type="submit" name="button" value="subscribe">Subscribe</button>
                                 </div>
                             </div>
 
@@ -47,7 +47,7 @@
                                 <form action="HELLo">
                                     <input type="text" class="form-control" placeholder="Text..." name="search">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit" name="button" value="search">
+                                        <button class="btn red_color text-white" type="submit" name="button" value="search">
                                             <ion-icon name="search-outline"></ion-icon>
                                         </button>
                                     </div>
@@ -153,7 +153,7 @@
         {{--     sub header      --}}
         <div class="col-md-12" id="header_menu">
 
-            <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+            <nav class="navbar navbar-expand-lg">
 
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenulist" aria-controls="navbarmenulist" aria-expanded="false" aria-label="Toggle navigation">
                             <ion-icon name="menu-outline" class="text-white" style="font-size: 30px;"></ion-icon>
@@ -232,7 +232,7 @@
                                 <li class="nav-item d-none d-md-none d-lg-block menu_buttons_share">
                                     <a class="nav-link text-white" href="#">
                                         Tell your friend
-                                        <ion-icon name="share-social-outline" class="menu_buttons"></ion-icon>
+                                        <ion-icon name="share-social-outline" class="menu_buttons" style="color:#FFF !important;"></ion-icon>
                                     </a>
                                 </li>
                             </ul>
@@ -303,7 +303,7 @@
         @yield('content')
 
         {{--        footer   --}}
-        <div class="col-md-12 mt-5 py-3" style="background-color: #3D9DFF">
+        <div class="col-md-12 mt-5 py-3 red_color">
             <div class="row">
                 <div class="offset-md-2"></div>
                 <div class="col-md-4 mb-2">

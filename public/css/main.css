@@ -47,8 +47,11 @@ header {
 }
 
 #header_menu{
-    background-color: #3B9CFF;
+    background-color: #8c1a11;
     line-height: 25px;
+}
+#header_menu>nav, .red_color{
+    background-color: #8c1a11;
 }
 #navbarmenulist > ul > li > a{
     padding-left: .3rem;
@@ -58,7 +61,7 @@ header {
     font-size: 1.1rem;
 }
 .menu_buttons{
-    color: #0051A6 !important;
+    color: #5d0e07 !important;
     font-size: 0.7rem;
 }
 .menu_buttons_share{
