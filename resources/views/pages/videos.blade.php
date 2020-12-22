@@ -6,7 +6,7 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-8 offset-md-2 mt-4">
-                <h2 class="text-primary mb-4">
+                <h2 class="text-danger mb-4">
                     Videos
                 </h2>
 

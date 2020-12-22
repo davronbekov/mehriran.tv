@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action active">
+                            <a href="#" class="list-group-item red_color text-white">
                                 Help board
                             </a>
                             <a href="{{ route('profile.index', ['lang' => app()->getLocale()]) }}" class="list-group-item list-group-item-action">Info</a>
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="input-group col-md-8 offset-md-2 mt-3">
-                                <input type="submit" class="btn btn-primary" value="Change">
+                                <input type="submit" class="btn red_color text-white" value="Change">
                             </div>
 
                         </form>

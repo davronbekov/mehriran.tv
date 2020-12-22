@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 {{--      Feedback          --}}
-                <h2 class="text-primary mb-5">
+                <h2 class="text-danger mb-5">
                     ONLINE INQUIRY
                 </h2>
 

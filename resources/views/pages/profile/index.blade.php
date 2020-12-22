@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action active">
+                            <a href="#" class="list-group-item red_color text-white">
                                 Help board
                             </a>
                             <a href="{{ route('profile.index', ['lang' => app()->getLocale()]) }}" class="list-group-item list-group-item-action">Info</a>
@@ -32,7 +32,7 @@
                                     {{ $user->email ?? 'not defined' }}
                                 </h5>
 
-                                <a class="btn btn-primary" href="{{ route('logout') }}"
+                                <a class="btn red_color text-white" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
