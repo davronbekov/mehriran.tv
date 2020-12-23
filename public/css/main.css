@@ -47,11 +47,11 @@ header {
 }
 
 #header_menu{
-    background-color: #8c1a11;
+    background-color: #990000;
     line-height: 25px;
 }
 #header_menu>nav, .red_color{
-    background-color: #8c1a11;
+    background-color: #990000;
 }
 #navbarmenulist > ul > li > a{
     padding-left: .3rem;
