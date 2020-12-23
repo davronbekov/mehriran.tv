@@ -316,6 +316,16 @@
                 </div>
             </div>
         </div>
+
+        <div id="footer_divider_line" class="col-md-12"></div>
+
+        <footer class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    asd
+                </div>
+            </div>
+        </footer>
     </div>
 
 

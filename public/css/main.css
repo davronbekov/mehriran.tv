@@ -131,3 +131,14 @@ header {
     bottom: 0;
     height: 190px;
 }
+
+#footer_divider_line{
+    background-image: url("/images/footer_line.png");
+    background-color: #6F010C;
+    height: 18px;
+}
+footer {
+    background-image: url("/images/footer_img.png");
+    background-color: #6F010C;
+    height: 500px;
+}
