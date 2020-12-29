@@ -18,17 +18,20 @@ class HomeController extends WebController
 
        public function actionIndex(Request $request){
         /**
-         * @var News $news
+         * @var News $newsModel
          */
-        $news = app(News::class);
-        $news = $news
+        $newsModel = app(News::class);
+        $news = $newsModel
             ->getItemsList(4, app()->getLocale());
+        $articles = $newsModel
+           ->getItemsList(4, app()->getLocale(), 'article');
 
         /**
-         * @var VideoFiles $documentaries
+         * @var VideoFiles $files
          */
-        $documentaries = app(VideoFiles::class);
-        $documentaries = $documentaries->getItemsByLanguage('documentary', 12, app()->getLocale());
+        $files = app(VideoFiles::class);
+        $documentaries = $files->getItemsByLanguage('documentary', 6, app()->getLocale());
+        $videos = $files->getItemsByLanguage('video', 6, app()->getLocale());
 
         $search = $request->input('search', null);
         if(!empty($search)){
@@ -57,7 +60,9 @@ class HomeController extends WebController
 
         return view('pages.home', [
             'news' => $news,
+            'articles' => $articles,
             'documentaries' => $documentaries,
+            'videos' => $videos,
             'subscribe_action' => $subscribe_action,
             'feedback_action' => $feedback_action,
         ]);

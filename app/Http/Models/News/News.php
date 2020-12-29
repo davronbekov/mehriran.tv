@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
  * Class News
  * @package App\Http\Models\News
  * @property int $id
+ * @property String $type
  * @property String $identify
  * @property String $created_at
  * @property String $updated_at
@@ -21,11 +22,18 @@ class News extends Model
 {
     protected $table = 'news';
 
-    public function getFilteredItems($data = [], $language = 'en'){
+    /**
+     * @param array $data
+     * @param string $language
+     * @param string $type
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getFilteredItems($data = [], $language = 'en', $type = 'news'){
         $items = parent::query();
         $items = $items
             ->join('news_params', 'news_params.news_id', '=', 'news.id')
-            ->where('news_params.language', '=', $language);
+            ->where('news_params.language', '=', $language)
+            ->where('news.type', '=', $type);
 
         if(isset($data['word']))
             $items = $items->where('news_params.title', 'like', '%'.$data['word'].'%');
@@ -33,24 +41,28 @@ class News extends Model
         return
             $items->select([
                 'news_params.news_id as id',
-                'news_params.title as title'
+                'news_params.title as title',
+                'news.type as type',
             ])->get();
     }
 
     /**
      * @param int $perPage
      * @param string $language
-     * @return mixed
+     * @param string $type
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
      */
-    public function getItemsList($perPage = 18, $language = 'en'){
+    public function getItemsList($perPage = 18, $language = 'en', $type = 'news'){
         $items = parent::query();
         $items = $items
             ->join('news_params', 'news_params.news_id', '=', 'news.id')
+            ->where('news.type', '=', $type)
             ->where('news_params.language', '=', $language)
             ->limit($perPage)
             ->select([
                 'news_params.news_id as id',
-                'news_params.title as title'
+                'news_params.title as title',
+                'news.type as type',
             ])
             ->get();
         return $items;
@@ -83,6 +95,7 @@ class News extends Model
      * @return bool
      */
     public function insertOrUpdate($data = []){
+        $this->type = $data['type'];
         $this->identify = $data['identify'];
         return $this->save();
     }

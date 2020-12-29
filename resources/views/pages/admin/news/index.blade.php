@@ -35,6 +35,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Type</th>
                         <th scope="col">Identify</th>
                         <th scope="col">Created at</th>
                         <th scope="col">Actions</th>
@@ -44,6 +45,7 @@
                     @foreach($news as $item)
                         <tr>
                             <th scope="row">{{ $item->id }}</th>
+                            <td>{{ $item->type }}</td>
                             <td>{{ $item->identify }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>

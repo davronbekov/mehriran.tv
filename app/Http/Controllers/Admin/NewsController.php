@@ -48,6 +48,7 @@ class NewsController extends AdminController
 
     public function store(Request $request){
         $request->validate([
+            'type' => 'required',
             'identify' => 'required',
         ]);
 
@@ -56,6 +57,7 @@ class NewsController extends AdminController
          */
         $news = app(News::class);
         $status = $news->insertOrUpdate([
+            'type' => $request->input('type'),
             'identify' => $request->input('identify')
         ]);
 

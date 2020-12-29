@@ -17,6 +17,13 @@
                         <input type="text" class="form-control" name="identify" placeholder="Unique identification of item" required disabled value="{{ $news->identify }}">
                     </div>
 
+                    <div class="col-md-12 mt-3">
+                        <select class="custom-select" name="type" disabled>
+                            <option value="news" {{ $news->type == 'news' ? 'selected' : '' }}>News</option>
+                            <option value="article" {{ $news->type == 'article' ? 'selected' : '' }}>Article</option>
+                        </select>
+                    </div>
+
 
                     <div class="col-md-5 offset-1 mt-5">
                         <input type="text" name="title" placeholder="Title" required class="form-control">

@@ -16,6 +16,13 @@
                         <input type="text" class="form-control" name="identify" placeholder="Unique identification of item" required>
                     </div>
 
+                    <div class="col-md-12 mt-3">
+                        <select class="w-100 custom-select" name="type">
+                            <option value="news">News</option>
+                            <option value="article">Article</option>
+                        </select>
+                    </div>
+
                     <div class="col-md-2 mt-3">
                         <input type="submit" class="form-control btn btn-dark" value="Create">
                     </div>

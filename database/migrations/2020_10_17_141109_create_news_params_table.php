@@ -18,6 +18,7 @@ class CreateNewsParamsTable extends Migration
             $table->integer('news_id');
             $table->string('language', 3);
             $table->string('title', 255);
+            $table->text('description');
             $table->timestamps();
         });
     }

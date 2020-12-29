@@ -63,6 +63,35 @@
 
             </div>
 
+            <hr class="bg-danger mx-3 w-100">
+            {{--        TV Programmes        --}}
+            <div class="col-md-12 mt-4">
+                <h2 class="text-danger mb-4">
+                    TV Programmes
+                </h2>
+
+                <div class="row">
+
+                    @foreach($videos as $video)
+                        @include('pages.pieces.video', ['file' => $video])
+                    @endforeach
+
+                </div>
+
+            </div>
+
+            <hr class="bg-danger mx-3 mt-5 w-100">
+
+            {{--        Articles    --}}
+            <div class="col-md-12 mb-5">
+                <h2 class="text-danger mb-4">
+                    Articles
+                </h2>
+
+                @include('pages.pieces.news', ['news' => $articles])
+
+            </div>
+
         </div>
     </div>
 
