@@ -177,6 +177,9 @@ return [
 
         Crowles\FileBrowser\FileBrowserServiceProvider::class,
 
+        //share social
+        Chencha\Share\ShareServiceProvider::class,
+
     ],
 
     /*
@@ -228,6 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Share' => Chencha\Share\ShareFacade::class,
     ],
 
 ];

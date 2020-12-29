@@ -6,6 +6,7 @@ use App\Http\Models\Feedbacks;
 use App\Http\Models\News\News;
 use App\Http\Models\Subscribers;
 use App\Http\Models\Video\VideoFiles;
+use Chencha\Share\Share;
 use Illuminate\Http\Request;
 
 class HomeController extends WebController

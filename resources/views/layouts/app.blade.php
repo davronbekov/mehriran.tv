@@ -4,6 +4,9 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <meta property='og:title' content='Mehriran.TV'/>
+    <meta property='og:url' content='{{ request()->fullUrl() }}'/>
+
     <title>Mehriran.TV</title>
 
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
@@ -167,7 +170,7 @@
                             <ion-icon name="mail-outline" class="text-white" style="font-size: 30px;"></ion-icon>
                         </button>
 
-                        <a class="navbar-toggler" href="{{ route('profile.index', ['lang' => app()->getLocale()]) }}">
+                        <a class="navbar-toggler" href="#" data-toggle="modal" data-target="#login_modal">
                             <ion-icon name="person-outline" class="text-white" style="font-size: 30px;"></ion-icon>
                         </a>
 
@@ -230,7 +233,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item d-none d-md-none d-lg-block menu_buttons_share">
-                                    <a class="nav-link text-white" href="#">
+                                    <a href="#" class="text-white" data-toggle="modal" data-target="#share_modal" style="vertical-align: sub">
                                         Tell your friend
                                         <ion-icon name="share-social-outline" class="menu_buttons" style="color:#FFF !important;"></ion-icon>
                                     </a>
@@ -335,6 +338,9 @@
         @include('auth.login')
         @include('auth.register')
     @endauth
+
+    @include('pages.shareButtons')
+
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
