@@ -308,14 +308,20 @@
         {{--        footer   --}}
         <div class="col-md-12 mt-5 py-3 red_color">
             <div class="row">
-                <div class="offset-md-2"></div>
-                <div class="col-md-4 mb-2">
-                    <a href="https://www.youtube.com/channel/UC_tSU1pitB4dUVMRuXaQniQ/" target="_blank">
-                        <img src="{{ url('images/youtube_banner.png') }}" alt="youtube" style="max-width: 100%">
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="twitter-timeline" data-height="205" href="https://twitter.com/MehriranTV?ref_src=twsrc%5Etfw">Tweets by MehriranTV</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <div class="offset-lg-2 col-md-12 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmehrglobalaustralia&tabs=timeline&width=&height=205&small_header=true&adapt_container_width=false&hide_cover=true&show_facepile=true&appId" width="100%" height="205" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <a href="https://www.youtube.com/channel/UC_tSU1pitB4dUVMRuXaQniQ/" target="_blank">
+                                <img src="{{ url('images/youtube_banner.png') }}" alt="youtube" style="max-width: 100%" height="205">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="twitter-timeline" data-height="205" href="https://twitter.com/MehriranTV?ref_src=twsrc%5Etfw">Tweets by MehriranTV</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,8 +330,12 @@
 
         <footer class="col-md-12">
             <div class="row">
-                <div class="col-md-12">
-                    asd
+                <div class="col-md-12 offset-lg-2 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-4">s</div>
+                        <div class="col-md-5">s</div>
+                        <div class="col-md-3">s</div>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -340,7 +350,6 @@
     @endauth
 
     @include('pages.shareButtons')
-
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
