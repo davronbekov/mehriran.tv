@@ -27,7 +27,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">{{ $file->relationParams->title }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeVideoModal({{ $file->id }})">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -71,3 +71,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    var closeVideoModal = function(videoId){
+        var videoElement = $('#file_player_'+videoId+' video')[0];
+        videoElement.pause();
+        videoElement.currentTime = 0;
+    };
+</script>
