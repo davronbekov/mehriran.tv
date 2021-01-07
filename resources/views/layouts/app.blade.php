@@ -158,122 +158,132 @@
 
             <nav class="navbar navbar-expand-lg">
 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenulist" aria-controls="navbarmenulist" aria-expanded="false" aria-label="Toggle navigation">
-                            <ion-icon name="menu-outline" class="text-white" style="font-size: 30px;"></ion-icon>
-                        </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenulist" aria-controls="navbarmenulist" aria-expanded="false" aria-label="Toggle navigation">
+                    <ion-icon name="menu-outline" class="text-white" style="font-size: 30px;"></ion-icon>
+                </button>
 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenusearch" aria-controls="navbarmenusearch" aria-expanded="false" aria-label="Toggle navigation">
-                            <ion-icon name="search-outline" class="text-white" style="font-size: 30px;"></ion-icon>
-                        </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenusearch" aria-controls="navbarmenusearch" aria-expanded="false" aria-label="Toggle navigation">
+                    <ion-icon name="search-outline" class="text-white" style="font-size: 30px;"></ion-icon>
+                </button>
 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenusubscribe" aria-controls="navbarmenusubscribe" aria-expanded="false" aria-label="Toggle navigation">
-                            <ion-icon name="mail-outline" class="text-white" style="font-size: 30px;"></ion-icon>
-                        </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarmenusubscribe" aria-controls="navbarmenusubscribe" aria-expanded="false" aria-label="Toggle navigation">
+                    <ion-icon name="mail-outline" class="text-white" style="font-size: 30px;"></ion-icon>
+                </button>
 
-                        <a class="navbar-toggler" href="#" data-toggle="modal" data-target="#login_modal">
-                            <ion-icon name="person-outline" class="text-white" style="font-size: 30px;"></ion-icon>
-                        </a>
+                <a class="navbar-toggler" href="#" data-toggle="modal" data-target="#login_modal">
+                    <ion-icon name="person-outline" class="text-white" style="font-size: 30px;"></ion-icon>
+                </a>
 
-                        {{--              MenuList              --}}
-                        <div class="collapse navbar-collapse justify-content-center" id="navbarmenulist">
-                            <ul class="navbar-nav">
-                                <li class="nav-item active">
-                                    <a class="nav-link text-white" href="{{ route('home', app()->getLocale()) }}">
-                                        HOME
-                                    </a>
-                                </li>
-                                <li class="nav-item d-none d-md-none d-lg-block">
-                                    <a class="nav-link" href="#">
-                                        <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('about', app()->getLocale()) }}">
-                                        ABOUT US
-                                    </a>
-                                </li>
-                                <li class="nav-item d-none d-md-none d-lg-block">
-                                    <a class="nav-link" href="#">
-                                        <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('videos', app()->getLocale()) }}">
-                                        TV PROGRAMMES
-                                    </a>
-                                </li>
-                                <li class="nav-item d-none d-md-none d-lg-block">
-                                    <a class="nav-link" href="#">
-                                        <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('documentaries', app()->getLocale()) }}">
-                                        DOCUMENTARIES
-                                    </a>
-                                </li>
-                                <li class="nav-item d-none d-md-none d-lg-block">
-                                    <a class="nav-link" href="#">
-                                        <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('news.index', app()->getLocale()) }}">
-                                        NEWS
-                                    </a>
-                                </li>
-                                <li class="nav-item d-none d-md-none d-lg-block">
-                                    <a class="nav-link" href="#">
-                                        <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="{{ route('contacts', app()->getLocale()) }}">
-                                        CONTACT US
-                                    </a>
-                                </li>
-                                <li class="nav-item d-none d-md-none d-lg-block menu_buttons_share">
-                                    <a href="#" class="text-white" data-toggle="modal" data-target="#share_modal" style="vertical-align: sub">
-                                        Tell your friend
-                                        <ion-icon name="share-social-outline" class="menu_buttons" style="color:#FFF !important;"></ion-icon>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                {{--              MenuList              --}}
+                <div class="collapse navbar-collapse justify-content-center" id="navbarmenulist">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{{ route('home', app()->getLocale()) }}">
+                                HOME
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-md-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('about', app()->getLocale()) }}">
+                                ABOUT US
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-md-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('videos', app()->getLocale()) }}">
+                                TV PROGRAMMES
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-md-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('documentaries', app()->getLocale()) }}">
+                                DOCUMENTARIES
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-md-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('news.index', app()->getLocale()) }}">
+                                NEWS
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-md-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('articles.index', app()->getLocale()) }}">
+                                ARTICLES
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-md-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <ion-icon name="radio-button-on-outline" class="menu_buttons"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('contacts', app()->getLocale()) }}">
+                                CONTACT US
+                            </a>
+                        </li>
+                        <li class="nav-item d-none d-md-none d-lg-block menu_buttons_share">
+                            <a href="#" class="text-white" data-toggle="modal" data-target="#share_modal" style="vertical-align: sub">
+                                Tell your friend
+                                <ion-icon name="share-social-outline" class="menu_buttons" style="color:#FFF !important;"></ion-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-                        <div class="col-md-12 d-sm-block d-md-block d-lg-none">
-                            {{--           Search                 --}}
-                            <div class="collapse navbar-collapse justify-content-center" id="navbarmenusearch">
-                                <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
-                                    <div class="input-group mt-3">
-                                        <input type="text" class="form-control" placeholder="Text..." name="search">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="submit" name="button" value="search">
-                                                <ion-icon name="search-outline"></ion-icon>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                </form>
+                <div class="col-md-12 d-sm-block d-md-block d-lg-none">
+                    {{--           Search                 --}}
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarmenusearch">
+                        <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
+                            <div class="input-group mt-3">
+                                <input type="text" class="form-control" placeholder="Text..." name="search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit" name="button" value="search">
+                                        <ion-icon name="search-outline"></ion-icon>
+                                    </button>
+                                </div>
                             </div>
 
-                            {{--           Subscribe                 --}}
-                            <div class="collapse navbar-collapse justify-content-center" id="navbarmenusubscribe">
-                                <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
+                        </form>
+                    </div>
 
-                                    <div class="input-group mt-3">
-                                        <input type="email" class="form-control" placeholder="E-mail" name="email">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="submit" name="button" value="subscribe">Subscribe</button>
-                                        </div>
-                                    </div>
+                    {{--           Subscribe                 --}}
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarmenusubscribe">
+                        <form class="col-md-6" action="{{ route('home', ['lang' => app()->getLocale()]) }}">
 
-                                </form>
+                            <div class="input-group mt-3">
+                                <input type="email" class="form-control" placeholder="E-mail" name="email">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit" name="button" value="subscribe">Subscribe</button>
+                                </div>
                             </div>
-                        </div>
+
+                        </form>
+                    </div>
+                </div>
 
 
-                    </nav>
+            </nav>
 
         </div>
 
@@ -332,6 +342,51 @@
             <div class="row">
                 <div class="col-md-12 offset-lg-2 col-lg-8">
                     <div class="row">
+                        <div class="col-md-12">
+                            <nav class="navbar navbar-expand-lg navbar-expand-md px-0">
+
+                                <div class="justify-content-center">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item active">
+                                            <a class="nav-link text-white" href="{{ route('home', app()->getLocale()) }}">
+                                                HOME
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="{{ route('about', app()->getLocale()) }}">
+                                                ABOUT US
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="{{ route('videos', app()->getLocale()) }}">
+                                                TV PROGRAMMES
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="{{ route('documentaries', app()->getLocale()) }}">
+                                                DOCUMENTARIES
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="{{ route('news.index', app()->getLocale()) }}">
+                                                NEWS
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="{{ route('articles.index', app()->getLocale()) }}">
+                                                ARTICLES
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="{{ route('contacts', app()->getLocale()) }}">
+                                                CONTACT US
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </nav>
+                        </div>
                         <div class="col-md-4">s</div>
                         <div class="col-md-5">s</div>
                         <div class="col-md-3">s</div>

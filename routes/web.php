@@ -62,6 +62,10 @@ Route::prefix('{lang?}')->middleware('locale')->group(function() {
         $router->get('/', 'NewsController@index')->name('index');
         $router->get('/show/{id}', 'NewsController@show')->name('show');
     });
+    Route::prefix('articles')->namespace('Web')->as('articles.')->group(function (Router $router){
+        $router->get('/', 'ArticlesController@index')->name('index');
+        $router->get('/show/{id}', 'ArticlesController@show')->name('show');
+    });
 
     Route::prefix('profile')->namespace('Web')->middleware('auth')->as('profile.')->group(function(Router $router){
         $router->get('/', 'ProfileController@actionIndex')->name('index');

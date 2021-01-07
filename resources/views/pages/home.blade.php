@@ -88,7 +88,7 @@
                     Articles
                 </h2>
 
-                @include('pages.pieces.news', ['news' => $articles])
+                @include('pages.pieces.articles', ['news' => $articles])
 
             </div>
 
