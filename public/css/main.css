@@ -142,3 +142,26 @@ footer {
     background-color: #6F010C;
     height: 500px;
 }
+
+.footer_gold_color{
+    background-color: #f7d278;
+}
+
+.footer_contacts{
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+}
+.footer_contacts div{
+    display: inline-block;
+    line-height: 1.3rem;
+}
+.footer_contacts div:first-child{
+    position: absolute;
+}
+.footer_contacts div:last-child{
+    padding-left: 25px;
+}
+#footer_copyright{
+    text-align: center;
+    color: #FFF;
+}

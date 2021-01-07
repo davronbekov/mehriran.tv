@@ -342,7 +342,7 @@
             <div class="row">
                 <div class="col-md-12 offset-lg-2 col-lg-8">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 d-none d-md-block d-lg-block">
                             <nav class="navbar navbar-expand-lg navbar-expand-md px-0">
 
                                 <div class="justify-content-center">
@@ -387,9 +387,51 @@
 
                             </nav>
                         </div>
-                        <div class="col-md-4">s</div>
-                        <div class="col-md-5">s</div>
-                        <div class="col-md-3">s</div>
+                        <div class="col-md-4 mt-3">
+                            <img src="{{ url('/images/logo.png') }}" alt="">
+                        </div>
+                        <div class="col-md-8 mt-3">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr class="footer_gold_color w-100">
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="text-white footer_contacts">
+                                        <div><ion-icon name="call-outline"></ion-icon></div>
+                                        <div>+1 (415) 685 8888</div>
+                                    </div>
+
+                                    <div class="mt-1 text-white footer_contacts">
+                                        <div><ion-icon name="call-outline"></ion-icon></div>
+                                        <div>+61 (0) 3 9863 8169</div>
+                                    </div>
+
+                                    <div class="mt-1 text-white footer_contacts">
+                                        <div><ion-icon name="mail-outline"></ion-icon></div>
+                                        <div>info@mehriran.tv</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="text-white">
+                                        <div class="mt-2">
+                                            St. Kilda Road towers
+                                            level 1, 1 Queens Road
+                                            Melbourne, Victoria 3004 Australia
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <hr class="footer_gold_color w-100">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <div id="footer_copyright">
+                                Copyright © MehriranTV 2012 - <?= date('Y') ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
