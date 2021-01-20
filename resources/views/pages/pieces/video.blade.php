@@ -27,7 +27,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">{{ $file->relationParams->title }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeVideoModal({{ $file->id }})">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -53,6 +53,13 @@
                                 });
 
                                 player.attachTo(playerElement);
+
+
+                                $('#file_modal_{{$file->id}}').on('hide.bs.modal', function (e) {
+                                    var videoElement = $('#file_player_{{$file->id}} video')[0];
+                                    videoElement.pause();
+                                    videoElement.currentTime = 0;
+                                })
                             </script>
                         @endif
                     </div>
@@ -71,11 +78,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    var closeVideoModal = function(videoId){
-        var videoElement = $('#file_player_'+videoId+' video')[0];
-        videoElement.pause();
-        videoElement.currentTime = 0;
-    };
-</script>
