@@ -15,8 +15,8 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <a href="#">
-                            List
+                        <a href="{{ route('admin.comments.video.index') }}">
+                            Comments
                         </a>
                     </li>
                 </ul>

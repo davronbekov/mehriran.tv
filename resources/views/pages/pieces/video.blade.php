@@ -96,7 +96,7 @@
                         @endforeach
                     @endif
 
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-3">
                         @auth
                             <form action="{{ route('comments.addVideo', ['lang' => app()->getLocale()]) }}" method="POST">
                                 @method('put')

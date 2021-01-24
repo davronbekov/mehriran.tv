@@ -14,14 +14,15 @@
                     </h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <a href="#">
-                            List
-                        </a>
-                    </li>
+
                     <li class="list-group-item">
                         <a href="{{ route('admin.news.create') }}">
                             Create
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{ route('admin.comments.news.index') }}">
+                            Comments
                         </a>
                     </li>
 

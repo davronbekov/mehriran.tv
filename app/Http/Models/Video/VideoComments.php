@@ -80,4 +80,11 @@ class VideoComments extends Model
     public function relationUsers(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function relationFile(){
+        return $this->belongsTo(VideoFiles::class, 'file_id', 'id');
+    }
 }

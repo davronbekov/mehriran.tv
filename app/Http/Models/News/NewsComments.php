@@ -80,4 +80,11 @@ class NewsComments extends Model
     public function relationUsers(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function relationNews(){
+        return $this->belongsTo(News::class, 'news_id', 'id');
+    }
 }

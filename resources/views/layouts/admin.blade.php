@@ -29,29 +29,34 @@
                                 Browser
                             </a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin.video.index') }}" >
                                 Videos
                             </a>
                         </li>
-                        <li class="navbar-nav">
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin.documentary.index') }}" >
                                 Documentaries
                             </a>
                         </li>
-                        <li class="navbar-nav">
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin.news.index') }}" >
                                 News
                             </a>
                         </li>
-                        <li class="navbar-nav">
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin.feedbacks.index') }}" >
                                 Feedbacks
                             </a>
                         </li>
-                        <li class="navbar-nav">
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin.subscribers.index') }}" >
                                 Subscribers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('admin.comments.news.index') }}" >
+                                Comments
                             </a>
                         </li>
                     </ul>

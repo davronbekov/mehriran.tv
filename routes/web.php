@@ -34,6 +34,11 @@ Route::prefix('admin')->namespace('Admin')->middleware('admin')->as('admin.')->g
     Route::prefix('files')->as('files.')->group(function (Router $router){
         $router->get('attach', 'FilesController@actionAttach')->name('attach');
     });
+
+    Route::prefix('comments')->namespace('Comments')->as('comments.')->group(function (Router $router){
+        $router->resource('news','NewsController');
+        $router->resource('video','VideoController');
+    });
 });
 
 /**
