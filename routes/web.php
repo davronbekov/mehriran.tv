@@ -67,6 +67,11 @@ Route::prefix('{lang?}')->middleware('locale')->group(function() {
         $router->get('/show/{id}', 'ArticlesController@show')->name('show');
     });
 
+    Route::prefix('comments')->namespace('Web')->as('comments.')->group(function (Router $router){
+        $router->put('addNews', 'CommentsController@actionAddNews')->name('addNews');
+        $router->put('addVideo', 'CommentsController@actionaddVideo')->name('addVideo');
+    });
+
     Route::prefix('profile')->namespace('Web')->middleware('auth')->as('profile.')->group(function(Router $router){
         $router->get('/', 'ProfileController@actionIndex')->name('index');
         $router->get('/changePassword', 'ProfileController@actionChangePassword')->name('changePassword');

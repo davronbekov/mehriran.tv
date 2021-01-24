@@ -72,6 +72,46 @@
                     <div class="col-md-12">
                         {!! $file->relationParams->description !!}
                     </div>
+
+                    <div class="col-md-12 mt-2">
+                        <h4>Comments:</h4>
+                    </div>
+
+                    @if(!is_null($file->relationComments))
+                        @foreach($file->relationComments as $comment)
+                            <div class="col-md-12 mt-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="mt-0">
+                                            {{ $comment->relationUsers->name }}
+                                        </h5>
+                                        <div>
+                                            {{ $comment->comment }}
+
+                                            <span class="float-right"> {{ $comment->created_at }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+
+                    <div class="col-md-12">
+                        @auth
+                            <form action="{{ route('comments.addVideo', ['lang' => app()->getLocale()]) }}" method="POST">
+                                @method('put')
+                                @csrf
+
+                                <input type="hidden" name="file_id" value="{{ $file->id }}" required>
+
+                                <textarea class="form-control" placeholder="Leave a comment here" name="comment" style="height: 100px" required></textarea>
+
+                                <input type="submit" class="btn btn-md mt-3 red_color text-white">
+                            </form>
+                        @else
+                            Sign-in is required to leave comment
+                        @endauth
+                    </div>
                 </div>
             </div>
 

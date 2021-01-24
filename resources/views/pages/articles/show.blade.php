@@ -14,26 +14,45 @@
                    {!! $article->description ?? 'undefined' !!}
                </div>
            </div>
+
            <div class="col-md-8 offset-md-2 mt-4">
                <h4>Comments:</h4>
            </div>
-           <div class="col-md-8 offset-md-2 mt-4">
-               <div class="card">
-                   <div class="card-body">
-                       <h5 class="mt-0">Media heading</h5>
-                       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+           @foreach($comments as $comment)
+               <div class="col-md-8 offset-md-2 mt-4">
+                   <div class="card">
+                       <div class="card-body">
+                           <h5 class="mt-0">
+                               {{ $comment->relationUsers->name }}
+                           </h5>
+                           <div>
+                               {{ $comment->comment }}
+
+                               <span class="float-right"> {{ $comment->created_at }}</span>
+                           </div>
+                       </div>
                    </div>
                </div>
-           </div>
+           @endforeach
 
            <div class="col-md-8 offset-md-2 mt-4">
-               <div class="card">
-                   <div class="card-body">
-                       <h5 class="mt-0">Media heading</h5>
-                       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                   </div>
-               </div>
+               @auth
+                   <form action="{{ route('comments.addNews', ['lang' => app()->getLocale()]) }}" method="POST">
+                       @method('put')
+                       @csrf
+
+                       <input type="hidden" name="news_id" value="{{ $article->id }}" required>
+
+                       <textarea class="form-control" placeholder="Leave a comment here" name="comment" style="height: 100px" required></textarea>
+
+                       <input type="submit" class="btn btn-md mt-3 red_color text-white">
+                   </form>
+               @else
+                   Sign-in is required to leave comment
+               @endauth
            </div>
+
        </div>
    </div>
 

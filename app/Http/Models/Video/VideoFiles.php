@@ -148,4 +148,12 @@ class VideoFiles extends Model
         return $this->belongsTo(VideoParams::class, 'id', 'file_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function relationComments(){
+        return $this->hasMany(VideoComments::class, 'file_id', 'id')
+            ->where('visible', '=', 1);
+    }
+
 }

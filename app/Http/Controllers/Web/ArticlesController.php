@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\WebController;
 use App\Http\Models\News\News;
+use App\Http\Models\News\NewsComments;
 
 class ArticlesController extends WebController
 {
@@ -37,8 +38,15 @@ class ArticlesController extends WebController
         if(is_null($article))
             return redirect(route('articles.index', ['lang' => app()->getLocale()]));
 
+        /**
+         * @var NewsComments $comments
+         */
+        $comments = app(NewsComments::class);
+        $comments = $comments->getItems($id);
+
         return view('pages.articles.show',[
             'article' => $article->relationParams->where('language', '=', $lang)->first(),
+            'comments' => $comments,
         ]);
     }
 }
