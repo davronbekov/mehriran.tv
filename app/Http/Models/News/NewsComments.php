@@ -60,21 +60,6 @@ class NewsComments extends Model
     }
 
     /**
-     * @param array $data
-     * @return bool
-     */
-    public function updateItem($data = []){
-        try{
-            $this->visible = $data['visible'];
-            $this->save();
-
-            return true;
-        }catch (Exception $exception){
-            return false;
-        }
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function relationUsers(){

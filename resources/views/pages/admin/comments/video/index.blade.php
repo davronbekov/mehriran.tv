@@ -40,6 +40,7 @@
                     <th scope="col">File</th>
                     <th scope="col">Created at</th>
                     <th scope="col">Status</th>
+                    <th scope="col">&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,11 @@
                             @else
                                 <h6><span class="badge bg-primary">Hidden</span></h6>
                             @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('admin.comments.video.show', $comment->id) }}">
+                                View
+                            </a>
                         </td>
                     </tr>
                 @endforeach

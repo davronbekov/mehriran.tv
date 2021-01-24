@@ -26,4 +26,37 @@ class VideoController extends AdminController
             'comments' => $comments,
         ]);
     }
+
+    public function show($id){
+        $comment = (new VideoComments())
+            ->with(['relationUsers']);
+        $comment = $comment
+            ->where('id', '=', $id)
+            ->first();
+
+        if(is_null($comment))
+            return redirect()->back()->with('error', 'Not found');
+
+        return view('pages.admin.comments.video.show', [
+            'comment' => $comment,
+        ]);
+    }
+
+    public function update($id, Request $request){
+        $comment = (new VideoComments());
+        $comment = $comment
+            ->where('id', '=', $id)
+            ->first();
+
+        if(is_null($comment))
+            return redirect()->back()->with('error', 'Not found');
+
+        $comment->visible = $request->input('visible');
+        $comment = $comment->save();
+
+        if($comment)
+            return redirect()->back()->with('success', 'Changed');
+        else
+            return redirect()->back()->with('error', 'Something went wrong, try later');
+    }
 }
