@@ -54,10 +54,19 @@
                                 Subscribers
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('admin.comments.news.index') }}" >
-                                Comments
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Comments <span class="caret"></span>
                             </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('admin.comments.news.index') }}" >
+                                    Articles
+                                </a>
+                                <a class="dropdown-item" href="{{ route('admin.comments.video.index') }}" >
+                                    Video
+                                </a>
+                            </div>
                         </li>
                     </ul>
 
