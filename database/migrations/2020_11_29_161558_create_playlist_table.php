@@ -20,7 +20,6 @@ class CreatePlaylistTable extends Migration
             $table->string('ext');
             $table->integer('duration');
             $table->string('starts', 5);
-            $table->string('ends', 5);
             $table->timestamps();
         });
     }

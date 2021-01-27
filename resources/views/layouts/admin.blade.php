@@ -29,16 +29,25 @@
                                 Browser
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('admin.video.index') }}" >
-                                Videos
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Files <span class="caret"></span>
                             </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('admin.video.index') }}" >
+                                    Videos
+                                </a>
+                                <a class="dropdown-item" href="{{ route('admin.documentary.index') }}" >
+                                    Documentaries
+                                </a>
+                                <a class="dropdown-item" href="{{ route('admin.playlist.index') }}" >
+                                    Playlist
+                                </a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('admin.documentary.index') }}" >
-                                Documentaries
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin.news.index') }}" >
                                 News
