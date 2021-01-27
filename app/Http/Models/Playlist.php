@@ -47,7 +47,7 @@ class Playlist extends Model
         $items = parent::query();
 
         $items = $items
-            ->orderBy('id', 'desc')
+            ->orderBy('id', 'asc')
             ->paginate($this->items_per_page);
 
         return $items;

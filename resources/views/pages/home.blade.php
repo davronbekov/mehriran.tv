@@ -155,15 +155,54 @@
     <script>
         var playerElement = document.getElementById("player");
 
+        var currentIndex = 0;
+        var seekSeconds = 0;
+        var playlist = [];
+
+        var currentTime = new Date().getTime();
+        var tmpTime = new Date();
+
+        @foreach($playlist as $item)
+
+        playlist.push(
+            {
+                url : '{{ url($item->path.'/'.$item->filename.'.'.$item->ext) }}',
+                starts : '{{ $item->starts }}',
+                duration : '{{ $item->duration * 1000 }}',
+                hours : "{{ explode(':', $item->starts)[0] }}",
+                minutes : "{{ explode(':', $item->starts)[1] }}",
+            });
+        @endforeach
+
+        console.log("currentTime : " + currentTime);
+
+        for(var i = 0; i < playlist.length; i++){
+            tmpTime.setHours(playlist[i].hours)
+            tmpTime.setMinutes(playlist[i].minutes)
+
+            console.log("tmpTime : " + i + " " + tmpTime.getTime());
+            console.log("duration : " + i + " " + playlist[i].duration);
+
+            console.log((+tmpTime.getTime() + +playlist[i].duration));
+
+            if(currentTime >= (+tmpTime.getTime() + +playlist[i].duration)){
+                console.log('BIGGER');
+                currentIndex = i;
+                seekSeconds = currentTime - tmpTime.getTime();
+            }
+        }
+
         var player = new Clappr.Player({
-            source: 'https://api.itv.uz/hls/iptv/1082/index.m3u8?type=live&traffic=true&token=gQ5gvGp_XlpksftPgxG5vg&ip=10.128.41.73&uid=&device=web&s=webd5f7338d7ab8fcfb9ebdf5fc519999cd&e=1601998657',
-            poster: 'http://clappr.io/poster.png',
-            mute: true,
+            source: playlist[currentIndex].url,
             height: 480,
             width: '100%'
         });
 
         player.attachTo(playerElement);
+        player.on(Clappr.Events.PLAYER_PLAY, function(){
+            player.core.mediaControl.disable();
+        })
+
     </script>
 
 @endsection

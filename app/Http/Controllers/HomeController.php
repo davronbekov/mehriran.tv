@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Models\Feedbacks;
 use App\Http\Models\News\News;
+use App\Http\Models\Playlist;
 use App\Http\Models\Subscribers;
 use App\Http\Models\Video\VideoFiles;
 use Chencha\Share\Share;
@@ -59,6 +60,12 @@ class HomeController extends WebController
                 break;
         }
 
+       /**
+        * @var Playlist $playlist
+        */
+        $playlist = app(Playlist::class);
+        $playlist = $playlist->getItems();
+
         return view('pages.home', [
             'news' => $news,
             'articles' => $articles,
@@ -66,6 +73,7 @@ class HomeController extends WebController
             'videos' => $videos,
             'subscribe_action' => $subscribe_action,
             'feedback_action' => $feedback_action,
+            'playlist' => $playlist,
         ]);
     }
 

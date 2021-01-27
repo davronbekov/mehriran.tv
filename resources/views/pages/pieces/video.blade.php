@@ -47,7 +47,6 @@
                                 var player = new Clappr.Player({
                                     source: '{{ $file->getFileUrl() }}',
                                     poster: '{{ url($file->relationSnapshot->getUrl()) }}',
-                                    mute: true,
                                     height: 360,
                                     width: '100%'
                                 });

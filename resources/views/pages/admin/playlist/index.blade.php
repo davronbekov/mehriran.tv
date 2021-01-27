@@ -50,6 +50,14 @@
                             <a href="{{ route('admin.playlist.edit', $item->id) }}">
                                 Edit
                             </a>
+
+                            <form action="{{ route('admin.playlist.destroy', $item->id) }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-danger waves-effect waves-light" onclick="return confirm('Delete?')">
+                                    <i class="fa fa-trash mr-1"></i> Delete
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
