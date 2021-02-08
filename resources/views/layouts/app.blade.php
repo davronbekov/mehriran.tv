@@ -132,7 +132,7 @@
                         <div class="col-6">
 
                             <div class="dropdown mt-3 border-white">
-                                <button class="btn btn-primary dropdown-toggle border-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-danger red_color dropdown-toggle border-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     English
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -340,10 +340,10 @@
 
         <footer class="col-md-12">
             <div class="row">
-                <div class="col-md-12 offset-lg-2 col-lg-8">
+                <div class="col-md-12 offset-lg-1 col-lg-10">
                     <div class="row">
                         <div class="col-md-12 d-none d-md-block d-lg-block">
-                            <nav class="navbar navbar-expand-lg navbar-expand-md px-0">
+                            <nav class="navbar navbar-expand-lg navbar-expand-md justify-content-center px-0">
 
                                 <div class="justify-content-center">
                                     <ul class="navbar-nav">
