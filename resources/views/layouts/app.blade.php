@@ -428,6 +428,22 @@
 
                         </div>
                         <div class="col-md-12 mt-3">
+                            <div class="text-center">
+                                <a href="https://www.facebook.com/mehrglobalaustralia/" target="_blank">
+                                    <img src="{{ url('images/icons/facebook.jpg') }}" width="50" height="50">
+                                </a>
+                                <a href="https://www.instagram.com/mehrglobal/" target="_blank">
+                                    <img src="{{ url('images/icons/instagram.png') }}" width="50" height="50">
+                                </a>
+                                <a href="https://twitter.com/MehriranTV" target="_blank">
+                                    <img src="{{ url('images/icons/twitter.png') }}" width="50" height="50">
+                                </a>
+                                <a href="https://www.youtube.com/channel/UC_tSU1pitB4dUVMRuXaQniQ" target="_blank">
+                                    <img src="{{ url('images/icons/youtube.png') }}" width="50" height="50">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-3">
                             <div id="footer_copyright">
                                 Copyright © MehriranTV 2012 - <?= date('Y') ?>
                             </div>

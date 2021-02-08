@@ -17,8 +17,8 @@
                 <a href="{{ $share->load($url, 'Mehriran.TV')->facebook() }}" target="_blank">
                     <img src="{{ url('images/icons/facebook.jpg') }}" width="50" height="50">
                 </a>
-                <a href="{{ $share->load($url, 'Mehriran.TV')->gplus() }}" target="_blank">
-                    <img src="{{ url('images/icons/gplus.png') }}" width="50" height="50">
+                <a href="{{ $share->load($url, 'Mehriran.TV')->pinterest() }}" target="_blank">
+                    <img src="{{ url('images/icons/pinterest.png') }}" width="50" height="50">
                 </a>
                 <a href="{{ $share->load($url, 'Mehriran.TV')->linkedin() }}" target="_blank">
                     <img src="{{ url('images/icons/linkedin.png') }}" width="50" height="50">
