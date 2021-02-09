@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Libs\PayPalUtils;
 use App\Http\Models\Feedbacks;
 use App\Http\Models\News\News;
 use App\Http\Models\Playlist;
 use App\Http\Models\Subscribers;
 use App\Http\Models\Video\VideoFiles;
-use Chencha\Share\Share;
 use Illuminate\Http\Request;
 
 class HomeController extends WebController
@@ -16,6 +16,8 @@ class HomeController extends WebController
     public function __construct()
     {
         parent::__construct();
+        $paypal = new PayPalUtils();
+        $paypal->getToken();
     }
 
        public function actionIndex(Request $request){
