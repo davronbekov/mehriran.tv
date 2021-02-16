@@ -16,8 +16,8 @@ class HomeController extends WebController
     public function __construct()
     {
         parent::__construct();
-        $paypal = new PayPalUtils();
-        $paypal->getToken();
+//        $paypal = new PayPalUtils();
+//        $paypal->createOrder(['cost' => 10]);
     }
 
        public function actionIndex(Request $request){

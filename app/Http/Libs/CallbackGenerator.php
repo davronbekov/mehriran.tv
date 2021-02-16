@@ -16,8 +16,11 @@ class CallbackGenerator
     private $username = null;
     private $password = null;
 
+    private $method = 'post';
+    private $isRaw = false;
+
     private function getMethod(){
-        return 'post';
+        return $this->method;
     }
 
     private function getLink(){
@@ -63,6 +66,14 @@ class CallbackGenerator
         $this->url = $url;
     }
 
+    public function setMethod($method = 'get'){
+        $this->method = $method;
+    }
+
+    public function setRaw($isRaw = false){
+        $this->isRaw = $isRaw;
+    }
+
     public function makeRequest(){
         try{
             $url = $this->getLink();
@@ -82,7 +93,12 @@ class CallbackGenerator
 
             if($this->getMethod() == 'post'){
                 curl_setopt($curl, CURLOPT_POST, true);
-                curl_setopt($curl, CURLOPT_POSTFIELDS, Strings::arrayToQueryString($this->request_params));
+
+                if($this->isRaw){
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, Strings::JsonEncode($this->request_params));
+                }else{
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, Strings::arrayToQueryString($this->request_params));
+                }
             }
 
             curl_exec($curl);

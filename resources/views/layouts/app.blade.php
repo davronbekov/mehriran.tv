@@ -14,6 +14,51 @@
 
     <script type="application/javascript" src="{{ asset('/js/app.js') }}"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+    <script>
+        paypal.Button.render({
+            env: 'sandbox', // Or 'sandbox',
+
+            commit: true, // Show a 'Pay Now' button
+
+            style: {
+                color: 'gold',
+                size: 'small',
+                shape: 'rect'
+            },
+
+            payment: function(data, actions) {
+                /*
+                 * Set up the payment here
+                 */
+                // console.log(actions);
+                data('2PJ87103HL741393H');
+            },
+
+            onAuthorize: function(data, actions) {
+                /*
+                 * Execute the payment here
+                 */
+                data('2PJ87103HL741393H')
+            },
+
+            onCancel: function(data, actions) {
+                /*
+                 * Buyer cancelled the payment
+                 */
+                alert('Payment canceled!');
+            },
+
+            onError: function(err) {
+                /*
+                 * An error occurred during the transaction
+                 */
+                alert('Try later! ' + err.message);
+            }
+        }, '#paypal-button');
+    </script>
+
 </head>
 <body class="container-fluid">
 
@@ -314,6 +359,8 @@
         </div>
 
         @yield('content')
+
+        <div id="paypal-button"></div>
 
         {{--        footer   --}}
         <div class="col-md-12 mt-5 py-3 red_color">
