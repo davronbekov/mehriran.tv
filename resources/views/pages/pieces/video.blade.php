@@ -12,7 +12,9 @@
                 Info
             </a>
         </div>
-        <div class="col-6"></div>
+        <div class="col-6">
+
+        </div>
         <div class="col-3">
             <a href="">
                 <ion-icon name="share-social-outline" style="font-size: 20px;position:absolute;left: 0.5rem;top:0.5rem" class="menu_buttons"></ion-icon>
@@ -63,10 +65,25 @@
                         @endif
                     </div>
                     <div class="col-md-12 mt-3">
-                        <a href="" class="float-right">
-                            <ion-icon name="share-social-outline" style="font-size: 20px;position:absolute;right: 3.5rem;" class="menu_buttons"></ion-icon>
-                            <span style="padding-left: 1rem">Share</span>
-                        </a>
+
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <div id="paypal-button{{ $file->id }}" style="margin-top: 5px"></div>
+                                <script>
+                                    @if($file->relationParams->price)
+                                        createButton({{ $file->id }}, {{ $file->relationParams->price }}, {{ auth()->user()->getAuthIdentifier() }})
+                                    @endif
+                                </script>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="" class="float-right">
+                                    <ion-icon name="share-social-outline" style="font-size: 20px;position:absolute;right: 3.5rem;" class="menu_buttons"></ion-icon>
+                                    <span style="padding-left: 1rem">Share</span>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="col-md-12">
                         {!! $file->relationParams->description !!}

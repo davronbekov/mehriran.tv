@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function (){
     Route::group(['prefix' => 'paypal', 'as' => 'paypal.'], function (Router $router){
         $router->get('/success', 'PayPalController@actionSuccess')->name('success');
         $router->get('/cancel', 'PayPalController@actionCancel')->name('cancel');
+        $router->get('/create', 'PayPalController@actionCreate')->name('create');
     });
 });
 

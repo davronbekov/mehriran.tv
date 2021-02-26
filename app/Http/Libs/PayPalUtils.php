@@ -5,10 +5,12 @@ namespace App\Http\Libs;
 
 class PayPalUtils
 {
+    private $url = 'https://api-m.sandbox.paypal.com';
+
     public function getToken(){
         $network = new CallbackGenerator();
 
-        $network->setLink('https://api-m.sandbox.paypal.com/v1/oauth2/token');
+        $network->setLink($this->url.'/v1/oauth2/token');
         $network->setHeaders([
             'Accept' => 'application/json',
             'Accept-Language' => 'en_US',
@@ -29,7 +31,7 @@ class PayPalUtils
     public function createOrder($data = []){
         $network = new CallbackGenerator();
 
-        $network->setLink('https://api-m.sandbox.paypal.com/v2/checkout/orders');
+        $network->setLink($this->url.'/v2/checkout/orders');
         $network->setHeaders([
             'Accept' => 'application/json',
             'Accept-Language' => 'en_US',
@@ -47,7 +49,7 @@ class PayPalUtils
                     ]
                 ]
             ],
-            'order_application_context' => [
+            'application_context' => [
                 'return_url' => route('api.paypal.success'),
                 'cancel_url' => route('api.paypal.cancel'),
             ]
@@ -60,5 +62,56 @@ class PayPalUtils
             return $network->getParam('id');
         else
             return false;
+    }
+
+    public function showOrder($id = null){
+        $network = new CallbackGenerator();
+
+        $network->setLink($this->url.'/v2/checkout/orders/'.$id);
+        $network->setHeaders([
+            'Accept' => 'application/json',
+            'Accept-Language' => 'en_US',
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer '.$this->getToken(),
+        ]);
+
+        $network->setMethod('get');
+        $network->makeRequest();
+
+        $approveLink = '';
+        $payer = [];
+
+        $status = $network->getParam('status');
+        switch ($status){
+            case 'APPROVED':
+            case 'COMPLETED':
+                //success
+                $user = $network->getParam('payer');
+                if(!is_null($user)){
+                    $name = $user->name;
+                    $payer = [
+                        'name'  => $name->given_name.' '.$name->surname,
+                        'email' => $user->email_address,
+                        'country_code' => $user->address ? $user->address->country_code : null,
+                    ];
+                }
+                break;
+            case 'PAYER_ACTION_REQUIRED':
+                //redirect user
+                $links = $network->getParam('links');
+                foreach ($links as $link) {
+                    if($link->rel == 'approve'){
+                        $approveLink = $link->rel;
+                    }
+                }
+                break;
+        }
+
+        return [
+            'token'     => $id,
+            'status' => $status,
+            'payer'  => $payer,
+            'approve_link' => $approveLink,
+        ];
     }
 }

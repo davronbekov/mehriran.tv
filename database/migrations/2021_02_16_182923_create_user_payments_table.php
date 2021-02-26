@@ -15,9 +15,10 @@ class CreateUserPaymentsTable extends Migration
     {
         Schema::create('user_payments', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('status', 'CREATED');
             $table->integer('user_id');
-            $table->enum('type', ['debit', 'credit']);
-            $table->integer('amount');
+            $table->string('token', 100);
+            $table->double('amount');
             $table->timestamps();
         });
     }
