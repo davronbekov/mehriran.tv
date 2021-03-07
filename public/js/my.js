@@ -27,7 +27,7 @@ var createButton = function (fileId, cost, userId){
              * Execute the payment here
              */
             console.log(data);
-            window.location.replace(data.returnUrl)
+            // window.location.replace(data.returnUrl)
             // data('1GE959833M427670U')
         },
         onCancel: function(data, actions) {

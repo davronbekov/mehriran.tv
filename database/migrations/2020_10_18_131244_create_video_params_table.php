@@ -17,8 +17,8 @@ class CreateVideoParamsTable extends Migration
             $table->increments('id');
             $table->integer('file_id');
             $table->float('price');
-            $table->string('title');
-            $table->text('description');
+            $table->enum('type', ['buy', 'rent']);
+            $table->integer('days')->default(0);
             $table->timestamps();
         });
     }

@@ -70,11 +70,17 @@
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
                                 <div id="paypal-button{{ $file->id }}" style="margin-top: 5px"></div>
-                                <script>
-                                    @if($file->relationParams->price)
-                                        createButton({{ $file->id }}, {{ $file->relationParams->price }}, {{ auth()->user()->getAuthIdentifier() }})
-                                    @endif
-                                </script>
+                                @auth
+                                    <script>
+                                        @if($file->relationParams->price)
+                                            createButton({{ $file->id }}, {{ $file->relationParams->price }}, {{ auth()->user()->getAuthIdentifier() }})
+                                        @endif
+                                    </script>
+                                @else
+                                    <a href="#" class="btn btn-primary w-100" data-toggle="modal" data-target="#login_modal">
+                                        Login is required to purchase
+                                    </a>
+                                @endauth
                             </div>
                             <div class="col-md-4">
                                 <a href="" class="float-right">

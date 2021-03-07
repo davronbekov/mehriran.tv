@@ -17,7 +17,7 @@ class CreateUserVideos extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('file_id');
-            $table->enum('type', ['bought', 'rent']);
+            $table->enum('type', ['buy', 'rent']);
             $table->integer('expire_time');
             $table->timestamps();
         });
