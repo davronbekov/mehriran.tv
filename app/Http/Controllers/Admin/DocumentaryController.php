@@ -56,7 +56,6 @@ class DocumentaryController extends AdminController
             'filename' => 'required',
             'ext' => 'required',
             'language' => 'required',
-            'price' => 'required',
             'title' => 'required',
             'description' => 'required',
             'snapshot' => 'required',
@@ -90,17 +89,6 @@ class DocumentaryController extends AdminController
         $videoFiles = app(VideoFiles::class);
         $videoFiles->insertItem($data);
 
-        /**
-         * @var VideoParams $videoParams
-         */
-        $videoParams = app(VideoParams::class);
-        $videoParams->insertItem([
-            'file_id' => $videoFiles->id,
-            'price' => $data['price'],
-            'title' => $data['title'],
-            'description' => $data['description'],
-        ]);
-
         return redirect(route('admin.documentary.index'));
     }
 
@@ -110,7 +98,6 @@ class DocumentaryController extends AdminController
             'filename' => 'required',
             'ext' => 'required',
             'language' => 'required',
-            'price' => 'required',
             'title' => 'required',
             'description' => 'required',
         ]);
@@ -143,17 +130,6 @@ class DocumentaryController extends AdminController
         $videoFiles = app(VideoFiles::class);
         $videoFiles = $videoFiles->getItem($id);
         $videoFiles->updateItem($data);
-
-        /**
-         * @var VideoParams $videoParams
-         */
-        $videoParams = app(VideoParams::class);
-        $videoParams = $videoParams->getItem($id);
-        $videoParams->updateItem([
-            'price' => $data['price'],
-            'title' => $data['title'],
-            'description' => $data['description'],
-        ]);
 
         return redirect(route('admin.documentary.index'));
     }

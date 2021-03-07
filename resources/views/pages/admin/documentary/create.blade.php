@@ -40,7 +40,7 @@
             <div class="row">
 
                 <h4 class="col-md-12">
-                    Language and price
+                    Language of documentary file
                 </h4>
                 <div class="col-md-12">
                     <select name="language" class="form-control" required>
@@ -48,10 +48,6 @@
                             <option value="{{ $key }}"> {{ $language }} </option>
                         @endforeach
                     </select>
-                </div>
-
-                <div class="col-md-12 mt-2">
-                    <input type="text" name="price" placeholder="price" class="form-control" required>
                 </div>
 
                 <h4 class="col-md-12 mt-3">

@@ -3,7 +3,7 @@
         <img src="{{ url($file->relationSnapshot->getUrl()) }}" width="318" height="175">
         <img src="{{ url('images/video_play_ico.png') }}" width="61" height="48" style="position:absolute;left: 145px; top: 63px;">
         <div class="text-white pl-3">
-            {{ $file->relationParams->title }}
+            {{ $file->title }}
         </div>
     </a>
     <div class="row">
@@ -28,7 +28,7 @@
     <div class="modal-dialog" style="max-width: 800px">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{ $file->relationParams->title }}</h5>
+                <h5 class="modal-title">{{ $file->title }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -92,7 +92,7 @@
 
                     </div>
                     <div class="col-md-12">
-                        {!! $file->relationParams->description !!}
+                        {!! $file->description !!}
                     </div>
 
                     <div class="col-md-12 mt-2">

@@ -32,8 +32,7 @@
                             <img src="{{ $videoFile->relationSnapshot->getUrl() }}" class="img-thumbnail">
                         </a>
                         <p>
-                            Language : {{ $videoFile->language }} <br/>
-                            Price : {{ $videoFile->relationParams->price }} <br/>
+                            {{ $videoFile->title }} <br/>
                         </p>
                     </div>
                 @endforeach

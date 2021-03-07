@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Session;
  * @property String $filename
  * @property String $ext
  * @property String $youtube_url
+ * @property String $title
+ * @property String $description
  * @property String $created_at
  * @property String $updated_at
  */
@@ -98,6 +100,9 @@ class VideoFiles extends Model
         $this->filename = $data['filename'];
         $this->ext = $data['ext'];
         $this->youtube_url = $data['youtube_url'] ?? null;
+
+        $this->title = $data['title'];
+        $this->description = $data['description'];
         return $this->save();
     }
 
@@ -116,6 +121,8 @@ class VideoFiles extends Model
         $this->filename = $data['filename'];
         $this->ext = $data['ext'];
 
+        $this->title = $data['title'];
+        $this->description = $data['description'];
         return $this->save();
     }
 

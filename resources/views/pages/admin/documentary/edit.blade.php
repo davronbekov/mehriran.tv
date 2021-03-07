@@ -49,7 +49,7 @@
             <div class="row">
 
                 <h4 class="col-md-12">
-                    Language and price
+                    Language of video
                 </h4>
                 <div class="col-md-12">
                     <select name="language" class="form-control" required>
@@ -59,16 +59,16 @@
                     </select>
                 </div>
 
-                <div class="col-md-12 mt-2">
-                    <input type="text" name="price" placeholder="price" class="form-control" required value="{{ $videoFile->relationParams->price }}">
-                </div>
+{{--                <div class="col-md-12 mt-2">--}}
+{{--                    <input type="text" name="price" placeholder="price" class="form-control" required value="{{ $videoFile->relationParams->price }}">--}}
+{{--                </div>--}}
 
                 <h4 class="col-md-12 mt-3">
                     Title of documentary
                 </h4>
 
                 <div class="col-md-12 mt-2">
-                    <input type="text" class="form-control" name="title" placeholder="Title" required value="{{ $videoFile->relationParams->title }}">
+                    <input type="text" class="form-control" name="title" placeholder="Title" required value="{{ $videoFile->title }}">
                 </div>
 
                 <h4 class="col-md-12 mt-2">
@@ -77,7 +77,7 @@
 
                 <div class="col-md-12 mt-2">
                     <textarea id="editor" class="form-control" placeholder="Description" name="description" required>
-                        {{ $videoFile->relationParams->description }}
+                        {{ $videoFile->description }}
                     </textarea>
                 </div>
 
