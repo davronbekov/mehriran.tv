@@ -21,6 +21,7 @@ class VideoParamsController extends AdminController
             'type'          => 'required',
             'file_id'       => 'required',
             'price'         => 'required',
+            'file_type'     => 'required',
         ]);
 
         try{
@@ -36,9 +37,9 @@ class VideoParamsController extends AdminController
                 'days'          => $request->input('days', 0),
             ]);
 
-            return redirect(route('admin.video.edit', $request->input('file_id')))->with('success', 'Success');
+            return redirect(route('admin.'.$request->input('file_type', 'video').'.edit', $request->input('file_id')))->with('success', 'Success');
         }catch (Exception $exception){
-            return redirect(route('admin.video.edit', $request->input('file_id')))->with('error', $exception->getMessage());
+            return redirect(route('admin.'.$request->input('file_type', 'video').'.edit', $request->input('file_id')))->with('error', $exception->getMessage());
         }
     }
 
@@ -47,6 +48,7 @@ class VideoParamsController extends AdminController
             'is_visible'    => 'required',
             'type'          => 'required',
             'price'         => 'required',
+            'file_type'     => 'required',
         ]);
 
         /**
@@ -55,7 +57,7 @@ class VideoParamsController extends AdminController
         $videoParams = app(VideoParams::class);
         $videoParams = $videoParams->getItem($id);
         if(is_null($videoParams)){
-            return redirect(route('admin.video.index'))->with('error', 'Item not found');
+            return redirect(route('admin.'.$request->input('file_type', 'video').'.index'))->with('error', 'Item not found');
         }
 
         try{
@@ -67,29 +69,29 @@ class VideoParamsController extends AdminController
                 'days'          => $request->input('days', 0),
             ]);
 
-            return redirect(route('admin.video.edit', $videoParams->file_id))->with('success', 'Success');
+            return redirect(route('admin.'.$request->input('file_type', 'video').'.edit', $videoParams->file_id))->with('success', 'Success');
         }catch (Exception $exception){
-            return redirect(route('admin.video.edit', $videoParams->file_id))->with('error', $exception->getMessage());
+            return redirect(route('admin.'.$request->input('file_type', 'video').'.edit', $videoParams->file_id))->with('error', $exception->getMessage());
         }
     }
 
-    public function destroy($id){
+    public function destroy($id, Request $request){
         /**
          * @var VideoParams $videoParams
          */
         $videoParams = app(VideoParams::class);
         $videoParams = $videoParams->getItem($id);
         if(is_null($videoParams)){
-            return redirect(route('admin.video.index'))->with('error', 'Item not found');
+            return redirect(route('admin.'.$request->input('file_type', 'video').'.index'))->with('error', 'Item not found');
         }
 
         $file_id = $videoParams->file_id;
         try{
             $videoParams->deleteItem();
 
-            return redirect(route('admin.video.edit', $file_id))->with('success', 'Success');
+            return redirect(route('admin.'.$request->input('file_type', 'video').'.edit', $file_id))->with('success', 'Success');
         }catch (Exception $exception){
-            return redirect(route('admin.video.edit', $file_id))->with('error', $exception->getMessage());
+            return redirect(route('admin.'.$request->input('file_type', 'video').'.edit', $file_id))->with('error', $exception->getMessage());
         }
 
     }

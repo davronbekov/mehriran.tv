@@ -59,10 +59,6 @@
                     </select>
                 </div>
 
-{{--                <div class="col-md-12 mt-2">--}}
-{{--                    <input type="text" name="price" placeholder="price" class="form-control" required value="{{ $videoFile->relationParams->price }}">--}}
-{{--                </div>--}}
-
                 <h4 class="col-md-12 mt-3">
                     Title of documentary
                 </h4>
@@ -87,11 +83,115 @@
 
             </div>
         </div>
-
-
-
     </form>
 
+    <div class="row mt-5">
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col-md-12">
+                        <form class="row" action="{{ route('admin.video_params.store') }}" method="post">
+                            @csrf
+                            <div class="col-md-12 text-center">
+                                <input type="hidden" name="file_id" value="{{ $videoFile->id }}">
+                                New Ticket
+                            </div>
+
+                            <div class="col-md-12 mt-2">
+                                <h6>Status</h6>
+                                <select name="is_visible" class="form-control" required>
+                                    <option value="0"> hidden </option>
+                                    <option value="1"> active </option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 mt-2">
+                                <h6>Ticket type</h6>
+                                <select name="type" class="form-control" required>
+                                    <option value="buy"> buy </option>
+                                    <option value="rent"> rent </option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 mt-2">
+                                <h6>Days (*only for RENT tickets)</h6>
+                                <input type="text" name="days" placeholder="days" class="form-control">
+                            </div>
+
+                            <div class="col-md-12 mt-2">
+                                <h6>Price in $$</h6>
+                                <input type="text" name="price" placeholder="price" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <input type="submit" class="btn btn-md btn-success w-100 text-white" value="create">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @foreach($videoParams as $videoParam)
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body row">
+                        <div class="col-md-12">
+                            <form class="row" action="{{ route('admin.video_params.update', $videoParam->id) }}" method="post">
+                                @method('put')
+                                @csrf
+                                <div class="col-md-12 text-center">
+                                    Ticket # {{ $videoParam->id }}
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <h6>Status</h6>
+                                    <select name="is_visible" class="form-control" required>
+                                        <option value="0" {{ $videoParam->is_visible == 0 ? 'selected' : '' }}> hidden </option>
+                                        <option value="1" {{ $videoParam->is_visible == 1 ? 'selected' : '' }}> active </option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <h6>Ticket type</h6>
+                                    <select name="type" class="form-control" required>
+                                        <option value="buy" {{ $videoParam->type == 'buy' ? 'selected' : '' }}> buy </option>
+                                        <option value="rent" {{ $videoParam->type == 'rent' ? 'selected' : '' }}> rent </option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <h6>Days (*only for RENT tickets)</h6>
+                                    <input type="text" name="days" placeholder="days" class="form-control" value="{{ $videoParam->days }}">
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <h6>Price in $$</h6>
+                                    <input type="text" name="price" placeholder="price" class="form-control" required  value="{{ $videoParam->price }}">
+                                </div>
+
+                                <div class="col-md-12 mt-3">
+                                    <input type="submit" class="btn btn-md btn-info w-100 text-white" value="update">
+                                </div>
+                            </form>
+                        </div>
+                        {{--                        <div class="col-md-12 mt-3">--}}
+                        {{--                            <form class="row" method="post" action="{{ route('admin.video_params.destroy', $videoParam->id) }}">--}}
+                        {{--                                @csrf--}}
+                        {{--                                <input type="hidden" name="file_type" value="{{ $videoFile->type }}">--}}
+                        {{--                                @method('delete')--}}
+                        {{--                                <div class="col-md-12">--}}
+                        {{--                                    <input type="submit" class="btn btn-md btn-danger w-100" value="Delete">--}}
+                        {{--                                </div>--}}
+                        {{--                            </form>--}}
+                        {{--                        </div>--}}
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
+    </div>
 
     <script>
         ClassicEditor

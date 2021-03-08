@@ -88,6 +88,53 @@
 
     <div class="row mt-5">
 
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body row">
+                        <div class="col-md-12">
+                            <form class="row" action="{{ route('admin.video_params.store') }}" method="post">
+                                @csrf
+                                <div class="col-md-12 text-center">
+                                    <input type="hidden" name="file_id" value="{{ $videoFile->id }}">
+                                    <input type="hidden" name="file_type" value="{{ $videoFile->type }}">
+                                    New Ticket
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <h6>Status</h6>
+                                    <select name="is_visible" class="form-control" required>
+                                        <option value="0"> hidden </option>
+                                        <option value="1"> active </option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <h6>Ticket type</h6>
+                                    <select name="type" class="form-control" required>
+                                        <option value="buy"> buy </option>
+                                        <option value="rent"> rent </option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <h6>Days (*only for RENT tickets)</h6>
+                                    <input type="text" name="days" placeholder="days" class="form-control">
+                                </div>
+
+                                <div class="col-md-12 mt-2">
+                                    <h6>Price in $$</h6>
+                                    <input type="text" name="price" placeholder="price" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-12 mt-3">
+                                    <input type="submit" class="btn btn-md btn-success w-100 text-white" value="create">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         @foreach($videoParams as $videoParam)
             <div class="col-md-3">
                 <div class="card">
@@ -98,6 +145,7 @@
                                 @csrf
                                 <div class="col-md-12 text-center">
                                     Ticket # {{ $videoParam->id }}
+                                    <input type="hidden" name="file_type" value="{{ $videoFile->type }}">
                                 </div>
 
                                 <div class="col-md-12 mt-2">
@@ -131,57 +179,22 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-12 mt-3">
-                            <form class="row" method="post" action="{{ route('admin.video_params.destroy', $videoParam->id) }}">
-                                @csrf
-                                @method('delete')
-                                <div class="col-md-12">
-                                    <input type="submit" class="btn btn-md btn-danger w-100" value="Delete">
-                                </div>
-                            </form>
-                        </div>
+{{--                        <div class="col-md-12 mt-3">--}}
+{{--                            <form class="row" method="post" action="{{ route('admin.video_params.destroy', $videoParam->id) }}">--}}
+{{--                                @csrf--}}
+{{--                                <input type="hidden" name="file_type" value="{{ $videoFile->type }}">--}}
+{{--                                @method('delete')--}}
+{{--                                <div class="col-md-12">--}}
+{{--                                    <input type="submit" class="btn btn-md btn-danger w-100" value="Delete">--}}
+{{--                                </div>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
         @endforeach
 
-        <div class="col-md-12 mt-5">
-
-            <form action="{{ route('admin.video_params.store') }}" method="post">
-                @csrf
-                <table class="table table-hover table-success">
-                    <tr>
-                        <th>
-                            New
-                            <input type="hidden" name="file_id" value="{{ $videoFile->id }}">
-                        </th>
-                        <td>
-                            <select name="is_visible" class="form-control" required>
-                                <option value="0"> hidden </option>
-                                <option value="1"> active </option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="type" class="form-control" required>
-                                <option value="buy"> buy </option>
-                                <option value="rent"> rent </option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="text" name="days" placeholder="days" class="form-control">
-                        </td>
-                        <td>
-                            <input type="text" name="price" placeholder="price" class="form-control" required>
-                        </td>
-                        <td>
-                            <input type="submit" class="btn btn-sm btn-dark" value="create">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
     </div>
-
 
     <script>
         ClassicEditor
