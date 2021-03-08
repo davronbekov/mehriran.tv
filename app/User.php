@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Models\Users\UserVideos;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -36,4 +37,32 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function checkVideos($file_id = null){
+        if(is_null($file_id))
+            return false;
+
+        $status = false;
+        $time = time();
+
+        /**
+         * @var UserVideos $userVideos
+         */
+        $userVideos = app(UserVideos::class);
+        $userVideos = $userVideos->getItems($file_id);
+        foreach ($userVideos as $userVideo) {
+            switch ($userVideo->type){
+                case 'buy':
+                    $status = true;
+                    break;
+                case 'rent':
+                    if($time < $userVideo->expire_time){
+                        $status = true;
+                    }
+                    break;
+            }
+        }
+
+        return $status;
+    }
 }

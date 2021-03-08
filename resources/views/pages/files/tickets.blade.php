@@ -16,7 +16,7 @@
                 @endif
             </div>
 
-            @foreach($videoParams as $videoParam)
+            @foreach($videoParams as $key => $videoParam)
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body row">
@@ -24,7 +24,7 @@
                                 <form class="row" action="" method="post">
                                     @csrf
                                     <div class="col-md-12 text-center">
-                                        Ticket # {{ $videoParam->id }}
+                                        Option # {{ $key + 1}}
                                         <input type="hidden" name="tariff_id" value="{{ $videoFile->type }}">
                                     </div>
 
@@ -35,14 +35,20 @@
                                         </h5>
                                     </div>
 
-                                    @if($videoParam->type == 'rent')
-                                        <div class="col-md-12 mt-2">
-                                            <h6>Days: </h6>
-                                            <h5>
-                                                {{ $videoParam->days }}
-                                            </h5>
-                                        </div>
-                                    @endif
+                                    <div class="col-md-12 mt-2">
+                                        <h6>Days: </h6>
+                                        <h5>
+                                            @switch($videoParam->type)
+                                                @case('rent')
+                                                    {{ $videoParam->days }}
+                                                @break
+                                                @case('buy')
+                                                    Unlimited
+                                                @break
+                                            @endswitch
+
+                                        </h5>
+                                    </div>
 
                                     <div class="col-md-12 mt-2">
                                         <h6>Price:</h6>

@@ -21,8 +21,17 @@ class UserVideos extends Model
 {
     protected $table = 'user_videos';
 
-    public function getItem(){
+    /**
+     * @param null $file_id
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|null
+     */
+    public function getItems($file_id = null){
+        if(is_null($file_id))
+            return null;
 
+        return parent::query()
+            ->where('file_id', '=', $file_id)
+            ->get();
     }
 
     /**

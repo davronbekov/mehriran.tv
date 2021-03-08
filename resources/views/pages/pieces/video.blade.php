@@ -44,17 +44,32 @@
                         @else
                             <div id="file_player_{{$file->id}}"></div>
                             <script>
-                                var playerElement = document.getElementById("file_player_{{$file->id}}");
+                                @auth
+                                    var playerElement = document.getElementById("file_player_{{$file->id}}");
 
-                                var player = new Clappr.Player({
-                                    source: '{{ $file->getFileUrl() }}',
-                                    poster: '{{ url($file->relationSnapshot->getUrl()) }}',
-                                    height: 360,
-                                    width: '100%'
-                                });
+                                    @if(auth()->user()->checkVideos($file->id))
+                                        var player = new Clappr.Player({
+                                            source: '{{ $file->getFileUrl() }}',
+                                            poster: '{{ url($file->relationSnapshot->getUrl()) }}',
+                                            height: 360,
+                                            width: '100%'
+                                        });
+                                    @else
+                                        var player = new Clappr.Player({
+                                            source: '{{ url('') }}.mp4',
+                                            poster: '{{ url($file->relationSnapshot->getUrl()) }}',
+                                            height: 360,
+                                            width: '100%'
+                                        });
 
-                                player.attachTo(playerElement);
+                                        setTimeout(function(){
+                                            $('.player-error-screen').html('Purchase is required');
+                                        }, 1000)
+                                    @endif
 
+                                    player.attachTo(playerElement);
+
+                                @endauth
 
                                 $('#file_modal_{{$file->id}}').on('hide.bs.modal', function (e) {
                                     var videoElement = $('#file_player_{{$file->id}} video')[0];
@@ -70,7 +85,9 @@
                             <div class="col-md-4"></div>
                             <div class="col-md-4">
                                 @auth
-                                    Buy button here
+                                    @if(!auth()->user()->checkVideos($file->id))
+                                        <a href="{{ route('files.tickets', ['lang' => app()->getLocale(), 'file_id' => $file->id]) }}" class="btn btn-md red_color w-100 text-white">Buy / Rent</a>
+                                    @endif
                                 @else
                                     <a href="#" class="btn btn-primary w-100" data-toggle="modal" data-target="#login_modal">
                                         Login is required to purchase
