@@ -95,6 +95,7 @@
                             @csrf
                             <div class="col-md-12 text-center">
                                 <input type="hidden" name="file_id" value="{{ $videoFile->id }}">
+                                <input type="hidden" name="file_type" value="{{ $videoFile->type }}">
                                 New Ticket
                             </div>
 
@@ -143,6 +144,7 @@
                                 @csrf
                                 <div class="col-md-12 text-center">
                                     Ticket # {{ $videoParam->id }}
+                                    <input type="hidden" name="file_type" value="{{ $videoFile->type }}">
                                 </div>
 
                                 <div class="col-md-12 mt-2">
