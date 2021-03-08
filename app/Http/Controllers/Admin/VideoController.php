@@ -38,9 +38,16 @@ class VideoController extends AdminController
         $videoFiles = app(VideoFiles::class);
         $videoFiles = $videoFiles->getItem($id);
 
+        /**
+         * @var VideoParams $videoParams
+         */
+        $videoParams = app(VideoParams::class);
+        $videoParams = $videoParams->getItems($id);
+
         return view('pages.admin.video.edit', [
             'languages' => $this->languages,
             'videoFile' => $videoFiles,
+            'videoParams' => $videoParams,
         ]);
     }
 
@@ -145,8 +152,10 @@ class VideoController extends AdminController
          * @var VideoParams $videoParams
          */
         $videoParams = app(VideoParams::class);
-        $videoParams = $videoParams->getItem($id);
-        $videoParams->deleteItem();
+        $videoParams = $videoParams->getItems($id);
+        foreach ($videoParams as $videoParam){
+            $videoParam->deleteItem();
+        }
 
         return redirect(route('admin.video.index'));
     }

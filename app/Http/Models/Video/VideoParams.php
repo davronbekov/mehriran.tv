@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Session;
  * @property int $id
  * @property int $file_id
  * @property int $price
- * @property String $title
- * @property String $description
+ * @property String $type
+ * @property int $days
+ * @property int $is_visible
  * @property String $created_at
  * @property String $updated_at
  */
@@ -24,14 +25,27 @@ class VideoParams extends Model
 
     /**
      * @param null $file_id
-     * @return \Illuminate\Database\Eloquent\Builder|Model|object|null
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|null
      */
-    public function getItem($file_id = null){
+    public function getItems($file_id = null){
         if(is_null($file_id))
             return null;
 
         return parent::query()
             ->where('file_id', '=', $file_id)
+            ->get();
+    }
+
+    /**
+     * @param null $id
+     * @return \Illuminate\Database\Eloquent\Builder|Model|object|null
+     */
+    public function getItem($id = null){
+        if(is_null($id))
+            return null;
+
+        return parent::query()
+            ->where('id', '=', $id)
             ->first();
     }
 
@@ -40,10 +54,11 @@ class VideoParams extends Model
      * @return bool
      */
     public function insertItem($data = []){
-        $this->file_id = $data['file_id'];
-        $this->price = $data['price'];
-        $this->title = $data['title'];
-        $this->description = $data['description'];
+        $this->file_id = $data['file_id'] ?? null;
+        $this->price = $data['price'] ?? 0;
+        $this->type = $data['type'] ?? 'buy';
+        $this->days = $data['days'] ?? 0;
+        $this->is_visible = $data['is_visible'] ?? 0;
         return $this->save();
     }
 
@@ -52,9 +67,10 @@ class VideoParams extends Model
      * @return bool
      */
     public function updateItem($data = []){
-        $this->price = $data['price'];
-        $this->title = $data['title'];
-        $this->description = $data['description'];
+        $this->price = $data['price'] ?? 0;
+        $this->type = $data['type'] ?? 'buy';
+        $this->days = $data['days'] ?? 0;
+        $this->is_visible = $data['is_visible'] ?? 0;
         return $this->save();
     }
 

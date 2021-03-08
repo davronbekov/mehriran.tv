@@ -19,6 +19,7 @@ class CreateVideoParamsTable extends Migration
             $table->float('price');
             $table->enum('type', ['buy', 'rent']);
             $table->integer('days')->default(0);
+            $table->tinyInteger('is_visible')->default(0);
             $table->timestamps();
         });
     }
