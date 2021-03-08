@@ -30,18 +30,15 @@ class VideoFiles extends Model
     public function getFilteredItems($data = [], $type = 'video', $language = 'en'){
         $items = parent::query();
 
-        $items ->join('video_params', 'video_params.file_id', '=', 'video_files.id')
-            ->where('video_files.language', '=', $language);
-
         if(isset($data['word']))
-            $items = $items->where('video_params.title', 'like', '%'.$data['word'].'%');
+            $items = $items->where('title', 'like', '%'.$data['word'].'%');
 
-        $items = $items->where('video_files.type', '=', $type);
+        $items = $items
+            ->where('type', '=', $type)
+            ->where('language', '=', $language);
 
         return
-            $items->select([
-                'video_files.*'
-            ])->get();
+            $items->get();
     }
 
     /**
@@ -149,10 +146,12 @@ class VideoFiles extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function relationParams(){
-        return $this->belongsTo(VideoParams::class, 'id', 'file_id');
+        return $this
+            ->hasMany(VideoParams::class, 'file_id', 'id')
+            ->where('is_visible', '=', 1);
     }
 
     /**

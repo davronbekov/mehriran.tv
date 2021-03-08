@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\Model;
  * Class Payments
  * @package App\Http\Models\Users
  * @property int $id
- * @property String $current_status
+ * @property String $status
  * @property int $user_id
- * @property int $file_id
+ * @property int $tariff_id
  * @property String $token
  * @property Double $amount
  * @property String $created_at
@@ -44,9 +44,9 @@ class Payments extends Model
      */
     public function insertItem($data = []){
         try{
-            $this->current_status = $data['current_status'];
+            $this->status = $data['status'];
             $this->user_id = $data['user_id'];
-            $this->file_id = $data['file_id'];
+            $this->tariff_id = $data['tariff_id'];
             $this->token = $data['token'];
             $this->amount = $data['amount'];
             $this->save();
@@ -62,7 +62,7 @@ class Payments extends Model
      */
     public function updateItem($data = []){
         try{
-            $this->current_status = $data['current_status'];
+            $this->status = $data['status'];
             $this->save();
             return true;
         }catch (Exception $exception){

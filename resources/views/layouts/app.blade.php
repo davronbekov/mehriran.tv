@@ -200,7 +200,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('videos', app()->getLocale()) }}">
+                            <a class="nav-link text-white" href="{{ route('files.videos', app()->getLocale()) }}">
                                 TV PROGRAMMES
                             </a>
                         </li>
@@ -210,7 +210,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('documentaries', app()->getLocale()) }}">
+                            <a class="nav-link text-white" href="{{ route('files.documentaries', app()->getLocale()) }}">
                                 DOCUMENTARIES
                             </a>
                         </li>
@@ -360,12 +360,12 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link text-white" href="{{ route('videos', app()->getLocale()) }}">
+                                            <a class="nav-link text-white" href="{{ route('files.videos', app()->getLocale()) }}">
                                                 TV PROGRAMMES
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link text-white" href="{{ route('documentaries', app()->getLocale()) }}">
+                                            <a class="nav-link text-white" href="{{ route('files.documentaries', app()->getLocale()) }}">
                                                 DOCUMENTARIES
                                             </a>
                                         </li>

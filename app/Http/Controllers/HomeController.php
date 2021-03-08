@@ -87,36 +87,6 @@ class HomeController extends WebController
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function actionVideos(){
-        /**
-         * @var VideoFiles $videos
-         */
-        $videos = app(VideoFiles::class);
-        $videos = $videos->getItemsByLanguage('video', 12, app()->getLocale());
-
-        return view('pages.videos', [
-            'videos' => $videos,
-        ]);
-    }
-
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function actionDocumentaries(){
-        /**
-         * @var VideoFiles $documentaries
-         */
-        $documentaries = app(VideoFiles::class);
-        $documentaries = $documentaries->getItemsByLanguage('documentary', 12, app()->getLocale());
-
-        return view('pages.documentaries', [
-            'documentaries' => $documentaries,
-        ]);
-    }
-
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function actionContacts(){
         return view('pages.contacts');
     }

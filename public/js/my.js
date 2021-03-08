@@ -1,23 +1,24 @@
-var createButton = function (fileId, cost, userId){
+var createButton = function (tariffId, userId){
     paypal.Button.render({
         env: 'sandbox', // Or 'sandbox',
 
         commit: true, // Show a 'Pay Now' button
 
         style: {
-            color: 'blue',
+            color: 'gold',
             size: 'responsive',
             shape: 'rect',
-            label: 'buynow',
+            // label: 'buynow',
         },
 
         payment: function(data, actions) {
             /*
              * Set up the payment here
              */
-            fetch('/api/paypal/create?user_id='+userId+'&amount='+cost+'&file_id='+fileId).then(function(response) {
+            fetch('/api/paypal/create?user_id='+userId+'&tariff_id='+tariffId).then(function(response) {
                 return response.json();
             }).then(function(res) {
+                console.log(res);
                 data(res.token);
             });
         },
@@ -26,9 +27,7 @@ var createButton = function (fileId, cost, userId){
             /*
              * Execute the payment here
              */
-            console.log(data);
-            // window.location.replace(data.returnUrl)
-            // data('1GE959833M427670U')
+            window.location.replace(data.returnUrl)
         },
         onCancel: function(data, actions) {
             /*
@@ -42,5 +41,5 @@ var createButton = function (fileId, cost, userId){
              */
             alert('Try later! ' + err.message);
         }
-    }, '#paypal-button'+fileId);
+    }, '#paypal-button'+tariffId);
 }

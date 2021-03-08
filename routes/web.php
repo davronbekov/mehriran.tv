@@ -58,12 +58,16 @@ Route::prefix('{lang?}')->middleware('locale')->group(function() {
     Route::get('/', 'HomeController@actionIndex')->name('home');
     Route::get('/home', 'HomeController@actionIndex')->name('home'); //same as main page
     Route::get('/about', 'HomeController@actionAbout')->name('about');
-    Route::get('/videos', 'HomeController@actionVideos')->name('videos');
-    Route::get('/documentaries', 'HomeController@actionDocumentaries')->name('documentaries');
     Route::get('/contacts', 'HomeController@actionContacts')->name('contacts');
     Route::post('/feedback', 'HomeController@actonFeedback')->name('feedback');
 
     Route::get('/search', 'HomeController@actionSearch')->name('search');
+
+    Route::prefix('files')->namespace('Web')->as('files.')->group(function (Router $router){
+        $router->get('/videos', 'FilesController@actionVideos')->name('videos');
+        $router->get('/documentaries', 'FilesController@actionDocumentaries')->name('documentaries');
+        $router->get('/tickets/{file_id}', 'FilesController@actionTickets')->name('tickets');
+    });
 
     Route::prefix('news')->namespace('Web')->as('news.')->group(function (Router $router){
         $router->get('/', 'NewsController@index')->name('index');
